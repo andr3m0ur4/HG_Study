@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <button type="submit" name="botao" onclick="myFunction()">submeter</button>
+        <script>
+            function myFunction() {
+                if (confirm("Sua conta esta desativa!\nPara acessar seu perfil voce precisa ativa-la.\nDeseja ativa-la agora?")) {
+                    alert('A sua conta foi ativada com sucesso!');
+                    window.location.href = "script/active.php?";
+                } else {
+                    alert('A sua conta esta desativada!');
+                    window.location.href = "login.php";
+                }
+            }
+        </script>
+    </body>
+</html>
