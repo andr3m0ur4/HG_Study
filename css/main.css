@@ -1776,6 +1776,10 @@ h1, h2, h3, h4, h5, h6 {
   padding-right: 40px;
 }
 
+#home .default-select .nice-select {
+  background: #fff;
+}
+
 .default-select .nice-select .list {
   margin-top: 0;
   border: none;
@@ -2192,7 +2196,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding: 120px 0;
 }
 
-footer.section-gap {
+#join.section-gap {
   background: url(../img/header-bg-blue.jpg) center;
   background-size: cover;
   opacity: .95;
