@@ -1,6 +1,7 @@
 <?php
 
     // DIC configuration
+    use App\Connection as Capsule;
 
     $container = $app->getContainer();
 
@@ -17,4 +18,11 @@
         $logger->pushProcessor(new Monolog\Processor\UidProcessor());
         $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['path'], $settings['level']));
         return $logger;
+    };
+
+    // db
+    $container['db'] = function($c) {
+
+        // instância de conexão
+        return Capsule::getDb($c->get('settings')['db']);
     };

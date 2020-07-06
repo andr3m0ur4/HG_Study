@@ -20,10 +20,10 @@
             // DB settings
             'db' => [
                 'driver'    => 'mysql',
-                'host'      => '10.0.0.104:81',
+                'host'      => 'localhost',
                 'database'  => 'hg_study',
-                'username'  => 'root',
-                'password'  => '',
+                'username'  => 'admin',
+                'password'  => '123456',
                 'charset'   => 'utf8',
                 'collation' => 'utf8_unicode_ci',
                 'prefix'    => '',
