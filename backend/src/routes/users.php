@@ -10,5 +10,20 @@ use App\Models\User;
 
             $users = User::get();
             return $response->withJson($users);
+
+        });
+
+        $this->get('/users/leader/list', function(Request $request, Response $response) {
+
+            $leaders = User::getLeaders();
+            return $response->withJson($leaders);
+            
+        });
+
+        $this->get('/users/list/{id}', function(Request $request, Response $response, $args) {
+
+            $user = User::find($args['id']);
+            return $response->withJson($user);
+
         });
     });

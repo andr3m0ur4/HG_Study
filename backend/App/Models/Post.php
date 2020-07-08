@@ -4,21 +4,11 @@
 
     use Lib\Model\Model;
 
-    class User extends Model
+    class Post extends Model
     {
         public static function get()
         {
-            $query = 'SELECT * FROM users';
-
-            $stmt = PARENT::$db->prepare($query);
-            $stmt->execute();
-
-            return $stmt->fetchAll(\PDO::FETCH_OBJ);
-        }
-
-        public static function getLeaders()
-        {
-            $query = 'SELECT * FROM users WHERE type_user = 1';
+            $query = 'SELECT * FROM posts';
 
             $stmt = PARENT::$db->prepare($query);
             $stmt->execute();
@@ -28,7 +18,13 @@
 
         public static function find($id)
         {
-            $query = 'SELECT * FROM users WHERE id = :id';
+            $query = '
+                SELECT p.*, u.*, u.picture AS picture_user
+                FROM posts AS p
+                INNER JOIN users AS u
+                ON(p.id_user = u.id)
+                WHERE p.id = :id
+            ';
 
             $stmt = PARENT::$db->prepare($query);
             $stmt->bindValue(':id', $id);

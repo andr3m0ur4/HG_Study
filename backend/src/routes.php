@@ -1,12 +1,13 @@
 <?php
 
-    
     use Lib\Model\Model;
 
     Model::setDb($container->get('db'));
 
     // Routes
     require __DIR__ . '/routes/users.php';
+    require __DIR__ . '/routes/posts.php';
+    require __DIR__ . '/routes/comments.php';
     
     // Catch-all route to serve a 404 Not Found page if none of the routes match
 	// NOTE: make sure this route is defined last
