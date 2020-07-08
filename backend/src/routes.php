@@ -1,8 +1,16 @@
 <?php
 
     use Lib\Model\Model;
+    use Lib\Model\Error;
 
-    Model::setDb($container->get('db'));
+    if (get_class($container->get('db')) == 'PDO') {
+
+        Model::setDb($container->get('db'));
+
+    } else {
+        echo Error::getError($container->get('db'));
+        die();
+    }
 
     // Routes
     require __DIR__ . '/routes/users.php';

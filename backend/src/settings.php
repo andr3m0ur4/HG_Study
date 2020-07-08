@@ -23,7 +23,7 @@
                 'host'      => 'localhost',
                 'database'  => 'hg_study',
                 'username'  => 'admin',
-                'password'  => '123456',
+                'password'  => '12345',
                 'charset'   => 'utf8',
                 'collation' => 'utf8_unicode_ci',
                 'prefix'    => '',

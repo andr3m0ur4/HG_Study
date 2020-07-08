@@ -14,10 +14,12 @@
                     "{$db['password']}"
                 );
 
+                $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+
                 return $conn;
             } catch (\PDOException $e) {
                 // Tratar o erro
-                return $e->getMessage();
+                return $e;
             }
         }
     }
