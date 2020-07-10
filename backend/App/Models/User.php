@@ -126,7 +126,7 @@
                     twitter = :twitter,
                     instagram = :instagram,
                     github = :github,
-                    picture = :picture,
+                    picture = :picture
                 WHERE id = :id
             ';
 
