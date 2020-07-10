@@ -23,7 +23,7 @@
             $stmt = PARENT::$db->prepare($query);
             $stmt->execute();
 
-            return $stmt->fetchAll(\PDO::FETCH_OBJ);
+            return $stmt->fetchAll(\PDO::FETCH_CLASS, __CLASS__);
         }
 
         public static function getLeaders()
@@ -33,7 +33,7 @@
             $stmt = PARENT::$db->prepare($query);
             $stmt->execute();
 
-            return $stmt->fetchAll(\PDO::FETCH_OBJ);
+            return $stmt->fetchAll(\PDO::FETCH_CLASS, __CLASS__);
         }
 
         public static function find($id)

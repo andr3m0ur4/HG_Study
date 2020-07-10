@@ -19,4 +19,29 @@ use App\Models\Post;
             return $response->withJson($post);
 
         });
+
+        $this->post('/posts/add', function(Request $request, Response $response) {
+
+            $data = (object) $request->getParsedBody();
+            $post = Post::create($data);
+            return $response->withJson($post);
+
+        });
+
+        $this->put('/posts/update/{id}', function(Request $request, Response $response, $args) {
+
+            $data = (object) $request->getParsedBody();
+            $post = Post::find($args['id']);
+            $post->update($data);
+            return $response->withJson($post);
+
+        });
+
+        $this->delete('/posts/delete/{id}', function(Request $request, Response $response, $args) {
+
+			$post = Post::find($args['id']);
+			$post->delete();
+			return $response->withJson($post);
+
+		});
     });
