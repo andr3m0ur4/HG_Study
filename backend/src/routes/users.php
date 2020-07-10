@@ -26,4 +26,42 @@ use App\Models\User;
             return $response->withJson($user);
 
         });
+
+        $this->get('/users/experiences/{id}', function(Request $request, Response $response, $args) {
+
+            $experiences = User::getExperiences($args['id']);
+            return $response->withJson($experiences);
+
+        });
+
+        $this->get('/users/certificates/{id}', function(Request $request, Response $response, $args) {
+
+            $certificates = User::getCertificates($args['id']);
+            return $response->withJson($certificates);
+
+        });
+
+        $this->get('/users/projects/{id}', function(Request $request, Response $response, $args) {
+
+            $projects = User::getProjects($args['id']);
+            return $response->withJson($projects);
+
+        });
+
+        $this->post('/users/add', function(Request $request, Response $response) {
+
+            $data = (object) $request->getParsedBody();
+            $user = User::create($data);
+            return $response->withJson($user);
+
+        });
+
+        $this->put('/users/update/{id}', function(Request $request, Response $response, $args) {
+
+            $data = (object) $request->getParsedBody();
+            $user = User::find($args['id']);
+            $user->update($data);
+            return $response->withJson($user);
+
+        });
     });

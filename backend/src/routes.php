@@ -12,7 +12,12 @@
         die();
     }
 
+    $app->options('/{routes:.+}', function ($request, $response, $args) {
+	    return $response;
+	});
+
     // Routes
+    require __DIR__ . '/routes/authenticate.php';
     require __DIR__ . '/routes/users.php';
     require __DIR__ . '/routes/posts.php';
     require __DIR__ . '/routes/comments.php';

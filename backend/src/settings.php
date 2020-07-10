@@ -23,10 +23,13 @@
                 'host'      => 'localhost',
                 'database'  => 'hg_study',
                 'username'  => 'admin',
-                'password'  => '12345',
+                'password'  => '123456',
                 'charset'   => 'utf8',
                 'collation' => 'utf8_unicode_ci',
                 'prefix'    => '',
             ],
+
+            // Secrets
+            'secretKey' => '3d9b6bf465186eecf61901af5f92d437a7162c59'
         ],
     ];
