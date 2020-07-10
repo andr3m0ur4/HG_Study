@@ -12,9 +12,8 @@
 
         $email = $data['email'] ?? null;
         $password = $data['password'] ?? null;
-        $key = array_key_first($data);
 
-        $user = User::where($key, $email);
+        $user = User::where('email', $email);
 
         if (!is_null($user) && $password === $user->password) {
 

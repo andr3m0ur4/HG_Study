@@ -6,7 +6,15 @@
 
     class User extends Model
     {
-        public static $id;
+        public function __get($attr)
+        {
+            return $attr;
+        }
+
+        public function __set($attr, $value)
+        {
+            $this->$attr = $value;
+        }
 
         public static function get()
         {
@@ -36,10 +44,87 @@
             $stmt->bindValue(':id', $id);
             $stmt->execute();
 
-            $data = $stmt->fetchObject(__CLASS__);
-            SELF::$id = $data->id;
+            return $stmt->fetchObject(__CLASS__);
+        }
 
-            return $data;
+        public static function create($data)
+        {
+            $query = '
+                INSERT INTO users (name, last_name, email, password, city, state, type_user)
+                VALUES (:name, :last_name, :email, :password, :city, :state, :type_user)
+            ';
+
+            $stmt = PARENT::$db->prepare($query);
+            $stmt->bindValue(':name', $data->name);
+            $stmt->bindValue(':last_name', $data->last_name);
+            $stmt->bindValue(':email', $data->email);
+            $stmt->bindValue(':password', $data->password);
+            $stmt->bindValue(':city', $data->city);
+            $stmt->bindValue(':state', $data->state);
+            $stmt->bindValue(':type_user', $data->type_user);
+            $stmt->execute();
+
+            return SELF::find(PARENT::$db->lastInsertId());
+        }
+
+        public static function where($field, $value)
+        {
+            $query = "
+                SELECT email, password FROM users WHERE {$field} = :{$field}
+            ";
+
+            $stmt = PARENT::$db->prepare($query);
+            $stmt->bindValue(":$field", $value);
+            $stmt->execute();
+
+            return $stmt->fetchObject();
+        }
+
+        public function update($data)
+        {
+            foreach ($data as $key => $value) {
+                $this->__set($key, $value);
+            }
+
+            $query = '
+                UPDATE users
+                SET
+                    name = :name,
+                    last_name = :last_name,
+                    password = :password,
+                    job = :job,
+                    description = :description,
+                    current_job = :current_job,
+                    city = :city,
+                    state = :state,
+                    biography = :biography,
+                    facebook = :facebook,
+                    twitter = :twitter,
+                    instagram = :instagram,
+                    github = :github,
+                    picture = :picture
+                WHERE id = :id
+            ';
+
+            $stmt = PARENT::$db->prepare($query);
+            $stmt->bindValue(':name', $this->name);
+            $stmt->bindValue(':last_name', $this->last_name);
+            $stmt->bindValue(':password', $this->password);
+            $stmt->bindValue(':job', $this->job);
+            $stmt->bindValue(':description', $this->description);
+            $stmt->bindValue(':current_job', $this->current_job);
+            $stmt->bindValue(':city', $this->city);
+            $stmt->bindValue(':state', $this->state);
+            $stmt->bindValue(':biography', $this->biography);
+            $stmt->bindValue(':facebook', $this->facebook);
+            $stmt->bindValue(':twitter', $this->twitter);
+            $stmt->bindValue(':instagram', $this->instagram);
+            $stmt->bindValue(':github', $this->github);
+            $stmt->bindValue(':picture', $this->picture);
+            $stmt->bindValue(':id', $this->id);
+            $stmt->execute();
+
+            return $stmt;
         }
 
         public static function getExperiences($id)
@@ -51,6 +136,33 @@
             $stmt->execute();
 
             return $stmt->fetchAll(\PDO::FETCH_OBJ);
+        }
+
+        public static function setExperience($data)
+        {
+            if (!isset($id)) {
+
+                $query = '
+                    INSERT INTO experiences (description, id_user)
+                    VALUES (:description, :id_user)
+                ';
+
+                $stmt = PARENT::$db->prepare($query);
+                
+            }
+
+            $stmt->bindValue(':description', $data->description);
+            $stmt->bindValue(':id_user', $data->id_user);
+            $stmt->execute();
+
+            $id = PARENT::$db->lastInsertId();
+
+            $query = 'SELECT * FROM experiences WHERE id = :id';
+            $stmt = PARENT::$db->prepare($query);
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
+
+            return $stmt->fetchObject();
         }
 
         public static function getProjects($id)
@@ -73,81 +185,5 @@
             $stmt->execute();
 
             return $stmt->fetchAll(\PDO::FETCH_OBJ);
-        }
-
-        public static function create($data)
-        {
-            $query = '
-                INSERT INTO users (name, last_name, email, password, city, state, type_user)
-                VALUES (:name, :last_name, :email, :password, :city, :state, :type_user)
-            ';
-
-            $stmt = PARENT::$db->prepare($query);
-            $stmt->bindValue(':name', $data->name);
-            $stmt->bindValue(':last_name', $data->last_name);
-            $stmt->bindValue(':email', $data->email);
-            $stmt->bindValue(':password', $data->password);
-            $stmt->bindValue(':city', $data->city);
-            $stmt->bindValue(':state', $data->state);
-            $stmt->bindValue(':type_user', $data->type_user);
-            $stmt->execute();
-
-            return PARENT::$db->lastInsertId();
-        }
-
-        public static function where($field, $value)
-        {
-            $query = "
-                SELECT email, password FROM users WHERE {$field} = :{$field}
-            ";
-
-            $stmt = PARENT::$db->prepare($query);
-            $stmt->bindValue(":$field", $value);
-            $stmt->execute();
-
-            return $stmt->fetchObject();
-        }
-
-        public function update($data)
-        {
-            $query = '
-                UPDATE users
-                SET
-                    name = :name,
-                    last_name = :last_name,
-                    password = :password,
-                    job = :job,
-                    description = :description,
-                    current_job = :current_job,
-                    city = :city,
-                    state = :state,
-                    biography = :biography,
-                    facebook = :facebook,
-                    twitter = :twitter,
-                    instagram = :instagram,
-                    github = :github,
-                    picture = :picture
-                WHERE id = :id
-            ';
-
-            $stmt = PARENT::$db->prepare($query);
-            $stmt->bindValue(':name', $data->name);
-            $stmt->bindValue(':last_name', $data->last_name);
-            $stmt->bindValue(':password', $data->password);
-            $stmt->bindValue(':job', $data->job);
-            $stmt->bindValue(':description', $data->description);
-            $stmt->bindValue(':current_job', $data->current_job);
-            $stmt->bindValue(':city', $data->city);
-            $stmt->bindValue(':state', $data->state);
-            $stmt->bindValue(':biography', $data->biography);
-            $stmt->bindValue(':facebook', $data->facebook);
-            $stmt->bindValue(':twitter', $data->twitter);
-            $stmt->bindValue(':instagram', $data->instagram);
-            $stmt->bindValue(':github', $data->github);
-            $stmt->bindValue(':picture', $data->picture);
-            $stmt->bindValue(':id', SELF::$id);
-            $stmt->execute();
-
-            return $stmt;
         }
     }

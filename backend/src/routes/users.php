@@ -27,27 +27,6 @@ use App\Models\User;
 
         });
 
-        $this->get('/users/experiences/{id}', function(Request $request, Response $response, $args) {
-
-            $experiences = User::getExperiences($args['id']);
-            return $response->withJson($experiences);
-
-        });
-
-        $this->get('/users/certificates/{id}', function(Request $request, Response $response, $args) {
-
-            $certificates = User::getCertificates($args['id']);
-            return $response->withJson($certificates);
-
-        });
-
-        $this->get('/users/projects/{id}', function(Request $request, Response $response, $args) {
-
-            $projects = User::getProjects($args['id']);
-            return $response->withJson($projects);
-
-        });
-
         $this->post('/users/add', function(Request $request, Response $response) {
 
             $data = (object) $request->getParsedBody();
@@ -64,4 +43,33 @@ use App\Models\User;
             return $response->withJson($user);
 
         });
+
+        $this->get('/users/experiences/{id}', function(Request $request, Response $response, $args) {
+
+            $experiences = User::getExperiences($args['id']);
+            return $response->withJson($experiences);
+
+        });
+
+        $this->post('/users/experience/add', function(Request $request, Response $response) {
+
+            $data = (object) $request->getParsedBody();
+            $experience = User::setExperience($data);
+        });
+
+        $this->get('/users/certificates/{id}', function(Request $request, Response $response, $args) {
+
+            $certificates = User::getCertificates($args['id']);
+            return $response->withJson($certificates);
+
+        });
+
+        $this->get('/users/projects/{id}', function(Request $request, Response $response, $args) {
+
+            $projects = User::getProjects($args['id']);
+            return $response->withJson($projects);
+
+        });
+
+        
     });
