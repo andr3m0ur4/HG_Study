@@ -44,6 +44,8 @@ use App\Models\User;
 
         });
 
+        // Experiências, Projetos e Certificados
+
         $this->get('/users/experiences/{id}', function(Request $request, Response $response, $args) {
 
             $experiences = User::getExperiences($args['id']);
@@ -55,6 +57,23 @@ use App\Models\User;
 
             $data = (object) $request->getParsedBody();
             $experience = User::setExperience($data);
+            return $response->withJson($experience);
+
+        });
+
+        $this->put('/users/experience/update/{id}', function(Request $request, Response $response, $args) {
+
+            $data = (object) $request->getParsedBody();
+            $experience = User::setExperience($data, $args['id']);
+            return $response->withJson($experience);
+            
+        });
+
+        $this->delete('/users/experience/delete/{id}', function(Request $request, Response $response, $args) {
+
+            $experience = User::deleteExperience($args['id']);
+            return $response->withJson($experience);
+            
         });
 
         $this->get('/users/certificates/{id}', function(Request $request, Response $response, $args) {
@@ -64,6 +83,29 @@ use App\Models\User;
 
         });
 
+        $this->post('/users/certificate/add', function(Request $request, Response $response) {
+
+            $data = (object) $request->getParsedBody();
+            $certificate = User::setCertificate($data);
+            return $response->withJson($certificate);
+
+        });
+
+        $this->put('/users/certificate/update/{id}', function(Request $request, Response $response, $args) {
+
+            $data = (object) $request->getParsedBody();
+            $certificate = User::setCertificate($data, $args['id']);
+            return $response->withJson($certificate);
+            
+        });
+
+        $this->delete('/users/certificate/delete/{id}', function(Request $request, Response $response, $args) {
+
+            $certificate = User::deleteCertificate($args['id']);
+            return $response->withJson($certificate);
+            
+        });
+
         $this->get('/users/projects/{id}', function(Request $request, Response $response, $args) {
 
             $projects = User::getProjects($args['id']);
@@ -71,5 +113,26 @@ use App\Models\User;
 
         });
 
-        
+        $this->post('/users/project/add', function(Request $request, Response $response) {
+
+            $data = (object) $request->getParsedBody();
+            $project = User::setProject($data);
+            return $response->withJson($project);
+
+        });
+
+        $this->put('/users/project/update/{id}', function(Request $request, Response $response, $args) {
+
+            $data = (object) $request->getParsedBody();
+            $project = User::setProject($data, $args['id']);
+            return $response->withJson($project);
+            
+        });
+
+        $this->delete('/users/project/delete/{id}', function(Request $request, Response $response, $args) {
+
+            $project = User::deleteProject($args['id']);
+            return $response->withJson($project);
+            
+        });
     });
