@@ -14,7 +14,7 @@
 			"/api/v1/users/leader/list",
 			"/api/v1/posts/list",
 			"/api/v1/users/add",
-			"/api/v1/posts/comments",
+			"/api/v1/comments/list",
 			"/api/v1/users/experiences",
 			"/api/v1/users/projects",
 			"/api/v1/users/certificates"
