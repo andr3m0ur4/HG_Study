@@ -1,0 +1,24 @@
+{
+	"name": "miniframework/miniframework",
+	"require": {
+		"php": ">= 7.0"
+	},
+	"authors": [
+		{
+			"name": "André Moura",
+			"email": "andre.benedicto@etec.sp.gov.br"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"App\\": "App/",
+			"MF\\": "Lib/MF/"
+		}
+	},
+	"config": {
+        "process-timeout" : 0
+    },
+    "scripts": {
+        "start": "php -S 0.0.0.0:5555 -t public"
+    }
+}
