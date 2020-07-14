@@ -2,21 +2,44 @@
 
 	namespace MF\Controller;
 
+	use Twig\Loader\FilesystemLoader;
+	use Twig\Environment;
+	use Twig\Extension\DebugExtension;
+
 	abstract class Action
 	{
 		protected $view;
+		protected $loader;
+		protected $view_path = '../App/Views/';
+		protected $cache = '../App/Views/cache/';
+		protected $twig;
 
 		public function __construct()
 		{
 			$this->view = new \stdClass();
+
+			$options = [
+                'cache' => $this->cache,
+                'debug' => true,
+                'cache' => false
+			];
+			
+			$this->loader = new FilesystemLoader($this->view_path);
+			$this->twig = new Environment($this->loader, $options);
+
+			$this->twig->addExtension(new DebugExtension());
 		}
 
 		protected function render($view, $layout = 'layout')
 		{
 			$this->view->page = $view;
 
-			if (file_exists('../App/Views/' . $layout . '.phtml')) {
-				require_once '../App/Views/' . $layout . '.phtml';
+			if (file_exists($this->view_path . $layout . '.html')) {
+				//require_once '../App/Views/' . $layout . '.phtml';
+				$values = [];
+				$values['obj'] = $this->content();
+				$template = $this->twig->load($layout . '.html');
+				return $template->render($values);
 			} else {
 				$this->content();
 			}
@@ -30,6 +53,7 @@
 
 			$class_atual = strtolower(str_replace('Controller', '', $class_atual));
 
-			require_once '../App/Views/' . $class_atual . '/' . $this->view->page . '.phtml';
+			//return '../App/Views/' . $class_atual . '/' . $this->view->page . '.html';
+			return './' . $class_atual . '/' . $this->view->page . '.html';
 		}
 	}

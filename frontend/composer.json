@@ -1,7 +1,8 @@
 {
 	"name": "miniframework/miniframework",
 	"require": {
-		"php": ">= 7.0"
+		"php": ">= 7.0",
+		"twig/twig": "^3.0"
 	},
 	"authors": [
 		{

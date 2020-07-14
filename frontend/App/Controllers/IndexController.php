@@ -11,6 +11,6 @@
 	{
 		public function index()
 		{
-			$this->render('index');
+			echo $this->render('index');
 		}
 	}
