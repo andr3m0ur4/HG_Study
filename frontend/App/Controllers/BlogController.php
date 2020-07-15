@@ -4,14 +4,14 @@
 
 	use MF\Controller\Action;
 	use MF\Model\Container;
-	use App\Models\User;
+	use App\Models\Post;
 
 	class BlogController extends Action
 	{
 		public function bloghome()
 		{
-			//$user = Container::getModel('User');
-			//$users = $user->get();
-			echo $this->render('blog-home');
+			$post = Container::getModel('Post');
+			$posts = $post->get();
+			echo $this->render('blog-home', ['posts' => $posts]);
 		}
 	}

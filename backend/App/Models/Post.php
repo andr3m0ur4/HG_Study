@@ -18,7 +18,13 @@
 
         public static function get()
         {
-            $query = 'SELECT * FROM posts';
+            $query = '
+                SELECT 
+                    p.*, u.name, u.last_name 
+                FROM posts AS p
+                INNER JOIN users AS u
+                ON(p.id_user = u.id)
+            ';
 
             $stmt = PARENT::$db->prepare($query);
             $stmt->execute();
