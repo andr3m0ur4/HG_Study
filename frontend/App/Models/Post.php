@@ -8,14 +8,14 @@
     {
         public function __construct()
         {
-            $this->url .= 'api/v1/posts/';
+            $this->host .= 'api/v1/posts/';
         }
 
         public function get()
         {
-            $this->url .= 'list';
+            $url = $this->host . 'list';
 
-            $ch = curl_init($this->url);
+            $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_HTTPGET, true);

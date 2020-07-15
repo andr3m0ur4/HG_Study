@@ -8,14 +8,14 @@
     {
         public function __construct()
         {
-            $this->url .= 'api/v1/users/';
+            $this->host .= 'api/v1/users/';
         }
 
         public function get()
         {
-            $this->url .= 'list';
+            $url = $this->host . 'list';
 
-            $ch = curl_init($this->url);
+            $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_HTTPGET, true);
@@ -28,5 +28,54 @@
             }
 
             return $users;
+        }
+
+        public function find($id)
+        {
+            $url = $this->host . 'list/' . $id;
+
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_HTTPGET, true);
+            $result = json_decode(curl_exec($ch));
+
+            return $this->cast($result, __CLASS__);
+        }
+
+        public function getExperiences($id)
+        {
+            $url = $this->host . 'experiences/' . $id;
+
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_HTTPGET, true);
+            
+            return json_decode(curl_exec($ch));
+        }
+
+        public function getProjects($id)
+        {
+            $url = $this->host . 'projects/' . $id;
+
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_HTTPGET, true);
+            
+            return json_decode(curl_exec($ch));
+        }
+
+        public function getCertificates($id)
+        {
+            $url = $this->host . 'certificates/' . $id;
+
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_HTTPGET, true);
+            
+            return json_decode(curl_exec($ch));
         }
     }

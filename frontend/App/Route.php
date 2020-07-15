@@ -38,6 +38,12 @@
 				'action' => 'contact'
 			];
 
+			$routes['single'] = [
+				'route' => '/single',
+				'controller' => 'UserController',
+				'action' => 'single'
+			];
+
 			$this->setRoutes($routes);
 		}
 	}

@@ -44,7 +44,7 @@
                             <div class="details col-lg-9">
                                 <div class="title d-flex flex-row justify-content-between">
                                     <div class="titles">
-                                        <a href="/single.html">
+                                        <a href="/single?id={{user.id}}">
                                             <h4>{{user.name}} {{user.last_name}}</h4></a>
                                         <div>
                                             <h6>{{user.job}}</h6>
@@ -62,39 +62,6 @@
                             </div>
                         </div>
                     {% endfor %}
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb col-lg-3">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">Big Data</a>
-                                </li>
-                                <li>
-                                    <a href="#">Python</a>
-                                </li>
-                                <li>
-                                    <a href="#">Analise de Dados</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details col-lg-9">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single.html"><h4>Drauzio Varella</h4></a>
-                                    <h6>Analista de Big Data</h6>					
-                                </div>
-                                <ul class="btns">
-                                    <li><a href="#">Seguir</a></li>
-                                </ul>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Trabalho Atual: Twitter</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> Palmitão-CE</p>
-                        </div>
-                    </div>
-
                 </div>
 
                 <div class="col-lg-4 sidebar">
