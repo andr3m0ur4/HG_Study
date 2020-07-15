@@ -19,4 +19,9 @@
 		{
 			echo $this->render('about-us');
 		}
+
+		public function contact()
+		{
+			echo $this->render('contact');
+		}
 	}

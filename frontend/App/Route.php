@@ -32,6 +32,12 @@
 				'action' => 'bloghome'
 			];
 
+			$routes['contact'] = [
+				'route' => '/contact',
+				'controller' => 'IndexController',
+				'action' => 'contact'
+			];
+
 			$this->setRoutes($routes);
 		}
 	}
