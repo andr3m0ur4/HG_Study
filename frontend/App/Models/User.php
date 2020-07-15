@@ -6,7 +6,10 @@
 
     class User extends Model
     {
-        private $url = 'http://10.0.0.104:8080/api/v1/users/';
+        public function __construct()
+        {
+            $this->url .= 'api/v1/users/';
+        }
 
         public function get()
         {

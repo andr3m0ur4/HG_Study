@@ -15,4 +15,9 @@
 			$users = $user->get();
 			echo $this->render('index', ['users' => $users]);
 		}
+
+		public function aboutus()
+		{
+			echo $this->render('about-us');
+		}
 	}

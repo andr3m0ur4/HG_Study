@@ -4,6 +4,7 @@
 
 	abstract class Model
 	{
+		protected $url = 'http://localhost:8080/';
 		/**	 
 		 * This function will take an instance of a PHP stdClass and attempt to cast it to	 
 		 * the type of the specified $className.	 
