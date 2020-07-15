@@ -30,14 +30,12 @@
 			$this->twig->addExtension(new DebugExtension());
 		}
 
-		protected function render($view, $layout = 'layout')
+		protected function render($view, $values = [], $layout = 'layout')
 		{
 			$this->view->page = $view;
+			$values['content'] = $this->content();
 
 			if (file_exists($this->view_path . $layout . '.html')) {
-				//require_once '../App/Views/' . $layout . '.phtml';
-				$values = [];
-				$values['obj'] = $this->content();
 				$template = $this->twig->load($layout . '.html');
 				return $template->render($values);
 			} else {

@@ -4,13 +4,15 @@
 
 	use MF\Controller\Action;
 	use MF\Model\Container;
-	use App\Models\Produto;
+	use App\Models\User;
 	use App\Models\Info;
 
 	class IndexController extends Action
 	{
 		public function index()
 		{
-			echo $this->render('index');
+			$user = Container::getModel('User');
+			$users = $user->get();
+			echo $this->render('index', ['users' => $users]);
 		}
 	}

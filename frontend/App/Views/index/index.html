@@ -157,224 +157,42 @@
         <div class="container">
             <div class="row justify-content-center d-flex">
                 <div class="col-lg-8 post-list">
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">SQL</a>
-                                </li>
-                                <li>
-                                    <a href="#">PHP</a>
-                                </li>
-                                <li>
-                                    <a href="#">JAVASCRIPT</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single.html">
-                                        <h4>João Pereira Souza</h4></a>
-                                    <div>
-                                        <h6>Analista de Banco de Dados</h6>
+                    {% for user in users %}
+                        <div class="single-post d-flex flex-row">
+                            <div class="thumb">
+                                <img src="/img/post.png" alt="">
+                                <ul class="tags">
+                                    <li>
+                                        <a href="#">SQL</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">PHP</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">JAVASCRIPT</a>					
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="details">
+                                <div class="title d-flex flex-row justify-content-between">
+                                    <div class="titles">
+                                        <a href="/single.html">
+                                            <h4>{{user.name}} {{user.last_name}}</h4></a>
+                                        <div>
+                                            <h6>{{user.job}}</h6>
+                                        </div>
                                     </div>
-                                </div>
 
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Trabalho Atual: Google</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> São Paulo-SP</p>
-                            
-                        </div>
-                    </div>
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">Firewall</a>
-                                </li>
-                                <li>
-                                    <a href="#">Proxy</a>
-                                </li>
-                                <li>
-                                    <a href="#">Servidores</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single.html"><h4>João Gomes Souza</h4></a>
-                                    <h6>Analista de redes</h6>					
                                 </div>
-
+                                <p>
+                                    {{user.biography}}
+                                </p>
+                                <h5>Trabalho Atual: {{user.current_job}}</h5>
+                                <p class="address"><span class="lnr lnr-map"></span> {{user.city}}-{{user.state}}</p>
+                                
                             </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Trabalho Atual: Facebook</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> Campinas-SP</p>
                         </div>
-                    </div>
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">Pentest</a>
-                                </li>
-                                <li>
-                                    <a href="#">Linux</a>
-                                </li>
-                                <li>
-                                    <a href="#">Criptografia</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single.html"><h4>Rodrigo Barbosa Correia</h4></a>
-                                    <h6>Analista de Segurança</h6>					
-                                </div>
-
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Trabalho Atual: IBM</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> Presidente Prudente-SP</p>
-                            
-                        </div>
-                    </div>		
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">Bootstrap</a>
-                                </li>
-                                <li>
-                                    <a href="#">Jquery</a>
-                                </li>
-                                <li>
-                                    <a href="#">Design</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single.html"><h4>Gustavo Goncalves Ribeiro</h4></a>
-                                    <h6>Programador Web</h6>					
-                                </div>
-
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Trabalho Atual: Oracle</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> Várzea Paulista-SP</p>
-                        
-                        </div>
-                    </div>
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">SQL</a>
-                                </li>
-                                <li>
-                                    <a href="#">MySQL</a>
-                                </li>
-                                <li>
-                                    <a href="#">Modelagem</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single.html"><h4>Gabriel Martins Pereira</h4></a>
-                                    <h6>Administrador de Banco</h6>					
-                                </div>
-
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Trabalho Atual: Sandisk</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> São Paulo-SP</p>
-                            
-                        </div>
-                    </div>
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">Android</a>
-                                </li>
-                                <li>
-                                    <a href="#">GO</a>
-                                </li>
-                                <li>
-                                    <a href="#">IOS</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single.html"><h4>Thaís Rocha Goncalves</h4></a>
-                                    <h6>Desenvolvedor Mobile</h6>					
-                                </div>
-
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Trabalho Atual: Gameloft</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> Porto Alegre-RS</p>
-                        </div>
-                    </div>															
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">Art</a>
-                                </li>
-                                <li>
-                                    <a href="#">Media</a>
-                                </li>
-                                <li>
-                                    <a href="#">Design</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single.html"><h4>Creative Art Designer</h4></a>
-                                    <h6>Premium Labels Limited</h6>					
-                                </div>
-
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Job Nature: Full time</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
-                        
-                        </div>
-                    </div>
+                    {% endfor %}
 
                     <a class="text-uppercase loadmore-btn mx-auto d-block" href="/category.html">
                         Carregar mais Tutores
