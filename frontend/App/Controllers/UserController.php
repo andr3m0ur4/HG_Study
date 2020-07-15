@@ -6,17 +6,12 @@
 	use MF\Model\Container;
 	use App\Models\User;
 
-	class IndexController extends Action
+	class UserController extends Action
 	{
-		public function index()
+		public function users()
 		{
 			$user = Container::getModel('User');
 			$users = $user->get();
-			echo $this->render('index', ['users' => $users]);
-		}
-
-		public function aboutus()
-		{
-			echo $this->render('about-us');
+			echo $this->render('users', ['users' => $users]);
 		}
 	}

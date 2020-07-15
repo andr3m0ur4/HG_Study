@@ -20,6 +20,12 @@
 				'action' => 'aboutus'
 			];
 
+			$routes['users'] = [
+				'route' => '/users',
+				'controller' => 'UserController',
+				'action' => 'users'
+			];
+
 			$this->setRoutes($routes);
 		}
 	}
