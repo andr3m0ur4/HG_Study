@@ -26,6 +26,12 @@
 				'action' => 'users'
 			];
 
+			$routes['blog-home'] = [
+				'route' => '/blog-home',
+				'controller' => 'BlogController',
+				'action' => 'bloghome'
+			];
+
 			$this->setRoutes($routes);
 		}
 	}
