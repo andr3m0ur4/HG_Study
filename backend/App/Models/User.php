@@ -127,6 +127,17 @@
             return $stmt;
         }
 
+        public static function verifyEmail($email)
+        {
+            $query = 'SELECT name, email FROM users WHERE email = :email';
+
+            $stmt = SELF::$db->prepare($query);
+            $stmt->bindValue(':email', $email);
+            $stmt->execute();
+
+            return $stmt->rowCount();
+        }
+
         public static function getExperiences($id)
         {
             $query = 'SELECT * FROM experiences WHERE id_user = :id_user';

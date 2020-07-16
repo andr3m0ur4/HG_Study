@@ -11,6 +11,16 @@
             $this->host .= 'api/v1/users/';
         }
 
+        public function __set($attr, $value)
+        {
+            $this->$attr = $value;
+        }
+
+        public function __get($attr)
+        {
+            return $this->$attr;
+        }
+
         public function get()
         {
             $url = $this->host . 'list';
@@ -75,6 +85,46 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_HTTPGET, true);
+            
+            return json_decode(curl_exec($ch));
+        }
+
+        public function validateRegister()
+		{
+			$valid = true;
+
+			if (strlen($this->__get('name')) < 3) {
+				$valid = false;
+            }
+            
+            if (strlen($this->__get('last_name')) < 3) {
+				$valid = false;
+			}
+
+			if (strlen($this->__get('email')) < 3) {
+				$valid = false;
+			}
+
+			if (strlen($this->__get('password')) < 3) {
+				$valid = false;
+			}
+
+			return $valid;
+        }
+        
+        public function verifyEmail()
+        {
+            $url = $this->host . 'verifyemail';
+
+            $data = http_build_query([
+                'email' => $this->email
+            ]);
+
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_HTTPGET, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
             
             return json_decode(curl_exec($ch));
         }

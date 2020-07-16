@@ -17,7 +17,8 @@
 			"/api/v1/comments/list",
 			"/api/v1/users/experiences",
 			"/api/v1/users/projects",
-			"/api/v1/users/certificates"
+			"/api/v1/users/certificates",
+			"/api/v1/users/verifyemail"
 		],
 	    "secret" => $container->get('settings')['secretKey']
 	]));

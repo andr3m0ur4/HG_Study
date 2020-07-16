@@ -50,6 +50,18 @@
 				'action' => 'single'
 			];
 
+			$routes['register'] = [
+				'route' => '/register',
+				'controller' => 'UserController',
+				'action' => 'register'
+			];
+
+			$routes['signup'] = [
+				'route' => '/signup',
+				'controller' => 'UserController',
+				'action' => 'signup'
+			];
+
 			$this->setRoutes($routes);
 		}
 	}

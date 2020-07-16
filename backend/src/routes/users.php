@@ -44,6 +44,14 @@ use App\Models\User;
 
         });
 
+        $this->get('/users/verifyemail', function(Request $request, Response $response) {
+
+            $data = (object) $request->getParsedBody();
+            $count = User::verifyEmail($data->email);
+            return $response->withJson($count);
+
+        });
+
         // Experiências, Projetos e Certificados
 
         $this->get('/users/experiences/{id}', function(Request $request, Response $response, $args) {

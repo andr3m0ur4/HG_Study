@@ -30,4 +30,18 @@
 
 			echo $this->render('single', $values);
 		}
+
+		public function register()
+		{
+			echo $this->render('register');
+		}
+
+		public function signup()
+		{
+			$user = Container::getModel('User');
+			
+			foreach ($_POST as $attr => $value) {
+				$user->__set($attr, $value);
+			}
+		}
 	}
