@@ -32,6 +32,12 @@
 				'action' => 'bloghome'
 			];
 
+			$routes['blog-single'] = [
+				'route' => '/blog-single',
+				'controller' => 'BlogController',
+				'action' => 'blogsingle'
+			];
+
 			$routes['contact'] = [
 				'route' => '/contact',
 				'controller' => 'IndexController',

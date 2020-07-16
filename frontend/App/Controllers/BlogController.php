@@ -14,4 +14,19 @@
 			$posts = $post->get();
 			echo $this->render('blog-home', ['posts' => $posts]);
 		}
+
+		public function blogsingle()
+		{
+			$id = $_GET['id'];
+
+			$post = Container::getModel('Post');
+			$comment = Container::getModel('Comment');
+
+			$values = [
+				'post' => $post->find($id),
+				'comments' => $comment->get($id)
+			];
+
+			echo $this->render('blog-single', $values);
+		}
 	}

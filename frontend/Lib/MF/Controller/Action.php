@@ -5,6 +5,7 @@
 	use Twig\Loader\FilesystemLoader;
 	use Twig\Environment;
 	use Twig\Extension\DebugExtension;
+	use Twig\Extra\Intl\IntlExtension;
 
 	abstract class Action
 	{
@@ -21,13 +22,20 @@
 			$options = [
                 'cache' => $this->cache,
                 'debug' => true,
-                'cache' => false
+				'cache' => false,
+				'dateFormat' => 'medium',
+				'timeFormat' => 'medium',
+				'pattern' => '',
+				'timezone' => null,
+				'calendar' => 'gregorian',
+				'locale' => 'en'
 			];
 			
 			$this->loader = new FilesystemLoader($this->view_path);
 			$this->twig = new Environment($this->loader, $options);
 
 			$this->twig->addExtension(new DebugExtension());
+			$this->twig->addExtension(new IntlExtension());
 		}
 
 		protected function render($view, $values = [], $layout = 'layout')
