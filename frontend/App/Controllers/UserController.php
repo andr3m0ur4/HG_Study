@@ -43,5 +43,11 @@
 			foreach ($_POST as $attr => $value) {
 				$user->__set($attr, $value);
 			}
+
+			if ($user->validateRegister() && $user->verifyEmail() == 0) {
+				echo 'sucesso';
+			} else {
+				echo 'erro';
+			}
 		}
 	}

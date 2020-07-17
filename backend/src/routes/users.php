@@ -44,7 +44,7 @@ use App\Models\User;
 
         });
 
-        $this->get('/users/verifyemail', function(Request $request, Response $response) {
+        $this->post('/users/verifyemail', function(Request $request, Response $response) {
 
             $data = (object) $request->getParsedBody();
             $count = User::verifyEmail($data->email);

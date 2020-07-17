@@ -116,16 +116,19 @@
         {
             $url = $this->host . 'verifyemail';
 
-            $data = http_build_query([
+            $data = json_encode([
                 'email' => $this->email
             ]);
+
+            $header = ['Content-Type: application/json'];
 
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_HTTPGET, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+            curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
             
-            return json_decode(curl_exec($ch));
+            return curl_exec($ch);
         }
     }
