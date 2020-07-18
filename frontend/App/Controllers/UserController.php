@@ -45,7 +45,11 @@
 			}
 
 			if ($user->validateRegister() && $user->verifyEmail() == 0) {
-				echo 'sucesso';
+				
+				$user->__set('password', md5($_POST['password']));
+				$user->save();
+				echo $this->render('register', ['success' => true]);
+
 			} else {
 				echo 'erro';
 			}

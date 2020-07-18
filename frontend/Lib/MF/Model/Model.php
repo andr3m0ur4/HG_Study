@@ -4,8 +4,8 @@
 
 	abstract class Model
 	{
-		protected $host = 'http://10.0.0.104:8080/';
-		//protected $host = 'http://localhost:8080/';
+		//protected $host = 'http://10.0.0.104:8080/';
+		protected $host = 'http://localhost:8080/';
 		/**	 
 		 * This function will take an instance of a PHP stdClass and attempt to cast it to	 
 		 * the type of the specified $className.	 

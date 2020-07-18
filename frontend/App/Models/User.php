@@ -131,4 +131,30 @@
             
             return curl_exec($ch);
         }
+
+        public function save()
+        {
+            $url = $this->host . 'add';
+
+            $data = json_encode([
+                'name' => $this->name,
+                'last_name' => $this->last_name,
+                'email' => $this->email,
+                'password' => $this->password,
+                'city' => $this->city,
+                'state' => 'SP',
+                'type_user' => $this->type_user
+            ]);
+
+            $header = ['Content-Type: application/json'];
+
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+            return json_decode(curl_exec($ch));
+        }
     }
