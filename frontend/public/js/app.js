@@ -1,3 +1,5 @@
+let host = 'http://10.0.0.104:8080'
+
 $(document).ready(() => {
 
     if (location.pathname == '/register') {
@@ -8,9 +10,29 @@ $(document).ready(() => {
 
 // Pagina de cadastro
 function register() {
-    $('#btn_register').click(e => {
+    $('#form_register').submit(e => {
         e.preventDefault()
 
-        console.log($('form'))
+        let data = {}
+
+        $('#form_register').serializeArray().map(x => {
+            if (x.name == 'password') {
+                data[x.name] = CryptoJS.MD5(x.value).toString()
+            } else {
+                data[x.name] = x.value
+            }
+        })
+
+        $.ajax({
+
+            url: host + '/api/v1/users/add',
+            method: 'post',
+            data: data,
+
+            success: response => {
+                console.log(response)
+            }
+        })
+        
     })
 }
