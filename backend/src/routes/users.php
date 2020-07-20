@@ -44,10 +44,11 @@ use App\Models\User;
 
         });
 
-        $this->post('/users/verifyemail', function(Request $request, Response $response) {
+        $this->get('/users/verifyemail', function(Request $request, Response $response) {
 
-            $data = (object) $request->getParsedBody();
-            $count = User::verifyEmail($data->email);
+            $data = $request->getParsedBody();
+            return $response->withJson($data);
+            $count = User::verifyEmail($data);
             return $response->withJson($count);
 
         });
