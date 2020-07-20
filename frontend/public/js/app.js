@@ -1,5 +1,5 @@
-//let host = 'http://10.0.0.104:8080'
 let host = 'http://10.0.0.104:8080'
+//let host = 'http://10.0.0.104:8080'
 
 $(document).ready(() => {
 
@@ -20,14 +20,20 @@ function register() {
             data[x.name] = x.value
         })
 
-        verifyEmail(data)
+        console.log(verifyEmail(data))
+
+        if (validateRegister(data) && verifyEmail(data) == 0) {
+            console.log('scesso')
+        } else {
+            console.log('erro')
+        }
 
         //console.log(validadeRegister(data))
         
     })
 }
 
-function validadeRegister(data) {
+function validateRegister(data) {
     let valid = true
 
     if (data.name.length < 3) {
@@ -50,18 +56,22 @@ function validadeRegister(data) {
 }
 
 function verifyEmail(data) {
+    let count
+
     $.ajax({
 
         url: host + '/api/v1/users/verifyemail',
-        method: 'GET',
-        data: data,
+        method: 'post',
+        data: { email: data.email},
         dataType: 'json',
-        processData: true,
+        async: false,
     
         success: response => {
-            console.log(response)
+            count =  response
         }
     })
+
+    return count
 }
 
 /*
