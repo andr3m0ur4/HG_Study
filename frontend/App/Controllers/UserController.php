@@ -44,14 +44,9 @@
 				$user->__set($attr, $value);
 			}
 
-			if ($user->validateRegister() && $user->verifyEmail() == 0) {
-				
-				$user->__set('password', md5($_POST['password']));
-				$user->save();
-				echo $this->render('register', ['success' => true]);
+			$user->__set('password', md5($_POST['password']));
+			$user->save();
 
-			} else {
-				echo 'erro';
-			}
+			header('Location: /register?success');
 		}
 	}

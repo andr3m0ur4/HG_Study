@@ -1,10 +1,11 @@
-let host = 'http://10.0.0.104:8080'
 //let host = 'http://10.0.0.104:8080'
+let host = 'http://localhost:8080'
 
 $(document).ready(() => {
 
     if (location.pathname == '/register') {
         register()
+        showModal()
     }
 
 })
@@ -12,7 +13,7 @@ $(document).ready(() => {
 // Pagina de cadastro
 function register() {
     $('#form_register').submit(e => {
-        e.preventDefault()
+        
 
         let data = {}
 
@@ -20,16 +21,12 @@ function register() {
             data[x.name] = x.value
         })
 
-        console.log(verifyEmail(data))
-
         if (validateRegister(data) && verifyEmail(data) == 0) {
-            console.log('scesso')
+            return true
         } else {
+            e.preventDefault()
             console.log('erro')
         }
-
-        //console.log(validadeRegister(data))
-        
     })
 }
 
@@ -74,25 +71,8 @@ function verifyEmail(data) {
     return count
 }
 
-/*
-let data = {}
-
-$('#form_register').serializeArray().map(x => {
-    if (x.name == 'password') {
-        data[x.name] = CryptoJS.MD5(x.value).toString()
-    } else {
-        data[x.name] = x.value
+function showModal() {
+    if (location.search == '?success') {
+        $('#modal').modal('show')
     }
-})
-
-$.ajax({
-
-    url: host + '/api/v1/users/add',
-    method: 'post',
-    data: data,
-
-    success: response => {
-        console.log(response)
-    }
-})
-*/
+}
