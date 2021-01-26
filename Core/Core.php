@@ -21,8 +21,16 @@
             if (!empty($url) && $url != '/') {
                 $url = explode('/', $url);
                 array_shift($url);
+
+                $currentController = explode('-', $url[0]);
+
+                if (count($currentController) > 1) {
+                    $currentController = $currentController[0] . ucfirst($currentController[1]);
+                } else {
+                    $currentController = $currentController[0];
+                }
                 
-                $currentController = $url[0] . 'Controller';
+                $currentController .= 'Controller';
                 array_shift($url);
 
                 if (isset($url[0]) && !empty($url[0])) {
