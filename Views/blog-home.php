@@ -10,7 +10,7 @@
                 <p class="text-white link-nav">
                     <a href="/">Home</a>
                     <span class="lnr lnr-arrow-right"></span>
-                    <a href="/blog-home.html">Blog Posts</a>
+                    <a href="/blog-home">Blog Posts</a>
                 </p>
             </div>
         </div>
@@ -32,7 +32,7 @@
                             <li><a href="#">Technology, </a></li>
                             <li><a href="#">Fashion</a></li>
                         </ul>
-                        <a href="/blog-single.html">
+                        <a href="/blog-single">
                             <h1>
                                 Cartridge Is Better Than Ever
                                 A Discount Toner
@@ -66,7 +66,7 @@
                             <li><a href="#">Technology, </a></li>
                             <li><a href="#">Fashion</a></li>
                         </ul>
-                        <a href="/blog-single.html">
+                        <a href="/blog-single">
                             <h1>
                                 Cartridge Is Better Than Ever
                                 A Discount Toner
@@ -98,7 +98,7 @@
                             <li><a href="#">Technology, </a></li>
                             <li><a href="#">Fashion</a></li>
                         </ul>
-                        <a href="/blog-single.html">
+                        <a href="/blog-single">
                             <h1>
                                 Cartridge Is Better Than Ever
                                 A Discount Toner
@@ -130,7 +130,7 @@
                             <li><a href="#">Technology, </a></li>
                             <li><a href="#">Fashion</a></li>
                         </ul>
-                        <a href="/blog-single.html">
+                        <a href="/blog-single">
                             <h1>
                                 Cartridge Is Better Than Ever
                                 A Discount Toner
@@ -185,7 +185,7 @@
                                     <img class="img-fluid" src="/img/blog/r1.jpg" alt="">
                                 </div>
                                 <div class="recent-details">
-                                    <a href="/blog-single.html">
+                                    <a href="/blog-single">
                                         <h4>
                                             Home Audio Recording
                                             For Everyone
@@ -201,7 +201,7 @@
                                     <img class="img-fluid" src="/img/blog/r2.jpg" alt="">
                                 </div>
                                 <div class="recent-details">
-                                    <a href="/blog-single.html">
+                                    <a href="/blog-single">
                                         <h4>
                                             Home Audio Recording
                                             For Everyone
@@ -217,7 +217,7 @@
                                     <img class="img-fluid" src="/img/blog/r3.jpg" alt="">
                                 </div>
                                 <div class="recent-details">
-                                    <a href="/blog-single.html">
+                                    <a href="/blog-single">
                                         <h4>
                                             Home Audio Recording
                                             For Everyone
@@ -233,7 +233,7 @@
                                     <img class="img-fluid" src="/img/blog/r4.jpg" alt="">
                                 </div>
                                 <div class="recent-details">
-                                    <a href="/blog-single.html">
+                                    <a href="/blog-single">
                                         <h4>
                                             Home Audio Recording
                                             For Everyone

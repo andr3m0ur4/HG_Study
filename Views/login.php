@@ -10,7 +10,7 @@
                 <p class="text-white">
                     <a href="/">Home </a>
                     <span class="lnr lnr-arrow-right"></span>
-                    <a href="/login.html">Login</a>
+                    <a href="/login">Login</a>
                 </p>
             </div>
         </div>
@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12">
 
-                <form action="/infoconta.html">
+                <form action="/single">
                     <div class="mt-10">
                         <input type="text" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required class="single-input-primary">
                     </div>

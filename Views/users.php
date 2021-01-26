@@ -10,7 +10,7 @@
                 <p class="text-white link-nav">
                     <a href="/">Home</a>
                     <span class="lnr lnr-arrow-right"></span>
-                    <a href="/category.html">Orientadores</a>
+                    <a href="/users">Orientadores</a>
                 </p>
             </div>											
         </div>
@@ -43,7 +43,7 @@
                         <div class="details col-lg-9">
                             <div class="title d-flex flex-row justify-content-between">
                                 <div class="titles">
-                                    <a href="/single.html">
+                                    <a href="/single">
                                         <h4>João Pereira Souza</h4></a>
                                     <div>
                                         <h6>Analista de Banco de Dados</h6>
@@ -78,7 +78,7 @@
                         <div class="details col-lg-9">
                             <div class="title d-flex flex-row justify-content-between">
                                 <div class="titles">
-                                    <a href="/single.html"><h4>João Gomes Souza</h4></a>
+                                    <a href="/single"><h4>João Gomes Souza</h4></a>
                                     <h6>Analista de redes</h6>					
                                 </div>
                                 <ul class="btns">
@@ -110,7 +110,7 @@
                         <div class="details col-lg-9">
                             <div class="title d-flex flex-row justify-content-between">
                                 <div class="titles">
-                                    <a href="/single.html"><h4>Rodrigo Barbosa Correia</h4></a>
+                                    <a href="/single"><h4>Rodrigo Barbosa Correia</h4></a>
                                     <h6>Analista de Segurança</h6>					
                                 </div>
                                 <ul class="btns">
@@ -142,7 +142,7 @@
                         <div class="details col-lg-9">
                             <div class="title d-flex flex-row justify-content-between">
                                 <div class="titles">
-                                    <a href="/single.html"><h4>Gustavo Goncalves Ribeiro</h4></a>
+                                    <a href="/single"><h4>Gustavo Goncalves Ribeiro</h4></a>
                                     <h6>Programador Web</h6>					
                                 </div>
                                 <ul class="btns">
@@ -174,7 +174,7 @@
                         <div class="details col-lg-9">
                             <div class="title d-flex flex-row justify-content-between">
                                 <div class="titles">
-                                    <a href="/single.html"><h4>Gabriel Martins Pereira</h4></a>
+                                    <a href="/single"><h4>Gabriel Martins Pereira</h4></a>
                                     <h6>Administrador de Banco</h6>					
                                 </div>
                                 <ul class="btns">
@@ -206,7 +206,7 @@
                         <div class="details col-lg-9">
                             <div class="title d-flex flex-row justify-content-between">
                                 <div class="titles">
-                                    <a href="/single.html"><h4>Thaís Rocha Goncalves</h4></a>
+                                    <a href="/single"><h4>Thaís Rocha Goncalves</h4></a>
                                     <h6>Desenvolvedor Mobile</h6>					
                                 </div>
                                 <ul class="btns">
@@ -238,7 +238,7 @@
                         <div class="details col-lg-9">
                             <div class="title d-flex flex-row justify-content-between">
                                 <div class="titles">
-                                    <a href="/single.html"><h4>Drauzio Varella</h4></a>
+                                    <a href="/single"><h4>Drauzio Varella</h4></a>
                                     <h6>Analista de Big Data</h6>					
                                 </div>
                                 <ul class="btns">
@@ -260,27 +260,27 @@
                         <h4>Orientador por Região</h4>
                         <ul class="cat-list">
                             <li>
-                                <a class="justify-content-between d-flex" href="/category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Sudeste</p><span>37</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="/category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Sul</p><span>57</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="/category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Centro-Oeste</p><span>33</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="/category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Norte</p><span>36</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="/category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Nordeste</p><span>47</span>
                                 </a>
                             </li>
@@ -295,32 +295,32 @@
                         <h4>Orientador por Categoria</h4>
                         <ul class="cat-list">
                             <li>
-                                <a class="justify-content-between d-flex" href="category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Desenvolvimento</p><span>37</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Redes</p><span>57</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Segurança</p><span>33</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Banco de Dados</p><span>36</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Inteligência Artificial</p><span>47</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Big Data</p><span>27</span>
                                 </a>
                             </li>
@@ -344,7 +344,7 @@
                     <h1 class="mb-10 text-white">Deseja ver mais?</h1>
                     <p class="text-white">Cadastre-se agora como tutor ou aluno e veja as vantagens de se tornar um.</p>
 
-                    <a class="primary-btn" href="/cadastro.html">Cadastrar</a>
+                    <a class="primary-btn" href="/register">Cadastrar</a>
                 </div>
             </div>
         </div>	

@@ -10,7 +10,7 @@
                 <p class="text-white link-nav">
                     <a href="/">Home</a>
                     <span class="lnr lnr-arrow-right"></span>
-                    <a href="/about-us.html">Sobre nós</a>
+                    <a href="/about-us">Sobre nós</a>
                 </p>
             </div>
         </div>
@@ -88,7 +88,7 @@
                     <h1 class="mb-10 text-white">Deseja ver mais?</h1>
                     <p class="text-white">Cadastre-se agora como tutor ou aluno e veja as vantagens de se tornar um.</p>
 
-                    <a class="primary-btn" href="/cadastro.html">Cadastrar</a>
+                    <a class="primary-btn" href="/register">Cadastrar</a>
                 </div>
             </div>
         </div>	

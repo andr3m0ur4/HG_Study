@@ -10,7 +10,7 @@
                 <p class="text-white">
                     <a href="/">Home</a>
                     <span class="lnr lnr-arrow-right"></span>
-                    <a href="/cadastro.html">Cadastre-se</a>
+                    <a href="/register">Cadastre-se</a>
                 </p>
             </div>											
         </div>

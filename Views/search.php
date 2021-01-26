@@ -10,7 +10,7 @@
                 <p class="text-white link-nav">
                     <a href="/">Home</a>
                     <span class="lnr lnr-arrow-right"></span>
-                    <a href="/search.html">Página de detalhes dos orientadores</a>
+                    <a href="/search">Página de detalhes dos orientadores</a>
                 </p>
                 <form action="#" class="serach-form-area">
                     <div class="row justify-content-center form-wrap">
@@ -18,7 +18,7 @@
                             <input type="text" class="form-control" name="search" placeholder="O que você está procurando?">
                         </div>
                         <div class="col-lg-3 form-cols">
-                            <div class="default-select" id="default-selects"">
+                            <div class="default-select" id="default-selects">
                                 <select>
                                     <option value="1">Selecione a região</option>
                                     <option value="2">Sudeste</option>
@@ -82,7 +82,7 @@
                         <div class="details">
                             <div class="title d-flex flex-row justify-content-between">
                                 <div class="titles">
-                                    <a href="/single.html"><h4>Creative Art Designer</h4></a>
+                                    <a href="/single"><h4>Creative Art Designer</h4></a>
                                     <h6>Premium Labels Limited</h6>					
                                 </div>
                                 <ul class="btns">
@@ -116,42 +116,7 @@
                         <div class="details">
                             <div class="title d-flex flex-row justify-content-between">
                                 <div class="titles">
-                                    <a href="/single.html"><h4>Creative Art Designer</h4></a>
-                                    <h6>Premium Labels Limited</h6>					
-                                </div>
-                                <ul class="btns">
-                                    <li><a href="#"><span class="lnr lnr-heart"></span></a></li>
-                                    <li><a href="#">Seguir</a></li>
-                                </ul>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Job Nature: Full time</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
-                                </p>
-                        </div>
-                    </div>
-
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">Art</a>
-                                </li>
-                                <li>
-                                    <a href="#">Media</a>
-                                </li>
-                                <li>
-                                    <a href="#">Design</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single.html"><h4>Creative Art Designer</h4></a>
+                                    <a href="/single"><h4>Creative Art Designer</h4></a>
                                     <h6>Premium Labels Limited</h6>					
                                 </div>
                                 <ul class="btns">
@@ -186,7 +151,7 @@
                         <div class="details">
                             <div class="title d-flex flex-row justify-content-between">
                                 <div class="titles">
-                                    <a href="/single.html"><h4>Creative Art Designer</h4></a>
+                                    <a href="/single"><h4>Creative Art Designer</h4></a>
                                     <h6>Premium Labels Limited</h6>					
                                 </div>
                                 <ul class="btns">
@@ -221,7 +186,7 @@
                         <div class="details">
                             <div class="title d-flex flex-row justify-content-between">
                                 <div class="titles">
-                                    <a href="/single.html"><h4>Creative Art Designer</h4></a>
+                                    <a href="/single"><h4>Creative Art Designer</h4></a>
                                     <h6>Premium Labels Limited</h6>					
                                 </div>
                                 <ul class="btns">
@@ -256,7 +221,7 @@
                         <div class="details">
                             <div class="title d-flex flex-row justify-content-between">
                                 <div class="titles">
-                                    <a href="/single.html"><h4>Creative Art Designer</h4></a>
+                                    <a href="/single"><h4>Creative Art Designer</h4></a>
                                     <h6>Premium Labels Limited</h6>					
                                 </div>
                                 <ul class="btns">
@@ -291,7 +256,42 @@
                         <div class="details">
                             <div class="title d-flex flex-row justify-content-between">
                                 <div class="titles">
-                                    <a href="/single.html"><h4>Creative Art Designer</h4></a>
+                                    <a href="/single"><h4>Creative Art Designer</h4></a>
+                                    <h6>Premium Labels Limited</h6>					
+                                </div>
+                                <ul class="btns">
+                                    <li><a href="#"><span class="lnr lnr-heart"></span></a></li>
+                                    <li><a href="#">Seguir</a></li>
+                                </ul>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
+                            </p>
+                            <h5>Job Nature: Full time</h5>
+                            <p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
+                                </p>
+                        </div>
+                    </div>
+
+                    <div class="single-post d-flex flex-row">
+                        <div class="thumb">
+                            <img src="/img/post.png" alt="">
+                            <ul class="tags">
+                                <li>
+                                    <a href="#">Art</a>
+                                </li>
+                                <li>
+                                    <a href="#">Media</a>
+                                </li>
+                                <li>
+                                    <a href="#">Design</a>					
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="details">
+                            <div class="title d-flex flex-row justify-content-between">
+                                <div class="titles">
+                                    <a href="/single"><h4>Creative Art Designer</h4></a>
                                     <h6>Premium Labels Limited</h6>					
                                 </div>
                                 <ul class="btns">
@@ -315,27 +315,27 @@
                         <h4>Jobs by Location</h4>
                         <ul class="cat-list">
                             <li>
-                                <a class="justify-content-between d-flex" href="/category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Sudeste</p><span>37</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="/category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Sul</p><span>57</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="/category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Centro-Oeste</p><span>33</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="/category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Norte</p><span>36</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="/category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Nordeste</p><span>47</span>
                                 </a>
                             </li>
@@ -388,32 +388,32 @@
                         <h4>Orientador por Categoria</h4>
                         <ul class="cat-list">
                             <li>
-                                <a class="justify-content-between d-flex" href="category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Desenvolvimento</p><span>37</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Redes</p><span>57</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Segurança</p><span>33</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Banco de Dados</p><span>36</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Inteligência Artificial</p><span>47</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="justify-content-between d-flex" href="category.html">
+                                <a class="justify-content-between d-flex" href="/users">
                                     <p>Big Data</p><span>27</span>
                                 </a>
                             </li>
@@ -453,7 +453,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="single-blog " style="background:#000 url(img/blog1.jpg);">
+                            <div class="single-blog" style="background:#000 url(img/blog1.jpg);">
                                 <a href="#"><h4>Home Audio Recording <br>
                                 For Everyone</h4></a>
                                 <div class="meta justify-content-between d-flex">
@@ -488,7 +488,7 @@
                     <h1 class="mb-10 text-white">Deseja ver mais?</h1>
                     <p class="text-white">Cadastre-se agora como tutor ou aluno e veja as vantagens de se tornar um.</p>
 
-                    <a class="primary-btn" href="/cadastro.html">Cadastrar</a>
+                    <a class="primary-btn" href="/register">Cadastrar</a>
                 </div>
             </div>
         </div>

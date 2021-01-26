@@ -12,4 +12,11 @@
 
             $this->loadTemplate('single', $data);
         }
+
+        public function update()
+        {
+            $data = [];
+
+            $this->loadTemplate('single-update', $data);
+        }
     }

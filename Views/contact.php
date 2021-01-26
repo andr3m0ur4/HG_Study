@@ -10,7 +10,7 @@
                 <p class="text-white">
                     <a href="/">Home</a>
                     <span class="lnr lnr-arrow-right"></span>
-                    <a href="/contact.html">Contato</a>
+                    <a href="/contact">Contato</a>
                 </p>
             </div>											
         </div>
