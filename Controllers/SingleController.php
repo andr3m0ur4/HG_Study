@@ -3,12 +3,22 @@
     namespace Controllers;
 
     use Core\Controller;
+    use Models\User;
 
     class SingleController extends Controller
     {
-        public function index()
+        public function index($id = null)
         {
-            $data = [];
+            if (is_null($id)) {
+                header('Location: /users');
+                exit;
+            }
+            
+            $user = new User();
+
+            $data = [
+                'user' => $user->get($id)
+            ];
 
             $this->loadTemplate('single', $data);
         }

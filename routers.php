@@ -2,9 +2,9 @@
 
     global $routes;
     $routes = [
-        '/galeria/{id}' => '/galeria/abrir/:id',
+        '/single/{id}' => '/single/index/:id',
         //'/galeria/{id}/{titulo}' => '/galeria/abrir/:id/:titulo',
-        '/news/{id}' => '/noticia/abrir/:id',
+        '/blog-single/{id}' => '/blog-single/index/:id',
         '/home' => '/home/index',
         //'/{titulo}' => '/noticia/abrirTitulo/:titulo'
     ];

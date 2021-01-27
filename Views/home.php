@@ -152,7 +152,7 @@
                             <div class="details">
                                 <div class="title d-flex flex-row justify-content-between">
                                     <div class="titles">
-                                        <a href="/single">
+                                        <a href="/single/<?= $user->id ?>">
                                             <h4><?= "{$user->name} {$user->last_name}"?></h4>
                                         </a>
                                         <div>

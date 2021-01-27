@@ -33,7 +33,7 @@
                                 <li><a href="#">Technology, </a></li>
                                 <li><a href="#">Fashion</a></li>
                             </ul>
-                            <a href="/blog-single">
+                            <a href="/blog-single/<?= $post->id ?>">
                                 <h1>
                                     <?= $post->title ?>
                                 </h1>
