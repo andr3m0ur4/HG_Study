@@ -3,7 +3,7 @@
     namespace Controllers;
 
     use Core\Controller;
-    use Models\Usuario;
+    use Models\User;
 
     class HomeController extends Controller
     {
@@ -11,8 +11,8 @@
         {
             $data = [];
 
-            /* $usuarios = new Usuario();
-            $data['usuarios'] = $usuarios->getAll(); */
+            $users = new User();
+            $data['users'] = $users->getAll();
 
             $this->loadTemplate('home', $data);
         }

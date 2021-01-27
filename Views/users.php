@@ -25,233 +25,59 @@
         <div class="container">
             <div class="row justify-content-center d-flex">
                 <div class="col-lg-8 post-list">
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb col-lg-3">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">SQL</a>
-                                </li>
-                                <li>
-                                    <a href="#">PHP</a>
-                                </li>
-                                <li>
-                                    <a href="#">JAVASCRIPT</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details col-lg-9">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single">
-                                        <h4>João Pereira Souza</h4></a>
-                                    <div>
-                                        <h6>Analista de Banco de Dados</h6>
+                    <?php foreach ($users as $user) : ?>
+                        <div class="single-post d-flex flex-row">
+                            <div class="thumb col-lg-3">
+                                <img src="/img/post.png" alt="">
+                                <ul class="tags">
+                                    <li>
+                                        <a href="#">SQL</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">PHP</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">JAVASCRIPT</a>					
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="details col-lg-9">
+                                <div class="title d-flex flex-row justify-content-between">
+                                    <div class="titles">
+                                        <a href="/single">
+                                            <h4><?= "{$user->name} {$user->last_name}" ?></h4></a>
+                                        <div>
+                                            <h6><?= $user->job ?></h6>
+                                        </div>
                                     </div>
+                                    <ul class="btns">
+                                        <li><a href="#">Seguir</a></li>
+                                    </ul>
                                 </div>
-                                <ul class="btns">
-                                    <li><a href="#">Seguir</a></li>
-                                </ul>
+                                <p>
+                                    <?= $user->description ?>
+                                </p>
+                                <h5>Trabalho Atual: <?= $user->current_job ?></h5>
+                                <p class="address"><span class="lnr lnr-map"></span> <?= $user->city ?>-<?= $user->state ?></p>
                             </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Trabalho Atual: Google</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> São Paulo-SP</p>
                         </div>
-                    </div>
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb col-lg-3">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">Firewall</a>
+                    <?php endforeach ?>
+
+                    <nav aria-label="Navegação de página">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item <?= $current_page == 1 ? 'disabled' : '' ?>">
+                                <a class="page-link" href="/users?p=<?= $current_page - 1 ?>" tabindex="-1">Anterior</a>
+                            </li>
+                            <?php for ($i = 0; $i < $pages; $i++) : ?>
+                                <li class="page-item <?= $current_page == $i + 1 ? 'active' : '' ?>">
+                                    <a class="page-link" href="/users?p=<?= $i + 1 ?>"><?= $i + 1 ?></a>
                                 </li>
-                                <li>
-                                    <a href="#">Proxy</a>
-                                </li>
-                                <li>
-                                    <a href="#">Servidores</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details col-lg-9">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single"><h4>João Gomes Souza</h4></a>
-                                    <h6>Analista de redes</h6>					
-                                </div>
-                                <ul class="btns">
-                                    <li><a href="#">Seguir</a></li>
-                                </ul>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Trabalho Atual: Facebook</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> Campinas-SP</p>
-                        </div>
-                    </div>
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb col-lg-3">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">Pentest</a>
-                                </li>
-                                <li>
-                                    <a href="#">Linux</a>
-                                </li>
-                                <li>
-                                    <a href="#">Criptografia</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details col-lg-9">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single"><h4>Rodrigo Barbosa Correia</h4></a>
-                                    <h6>Analista de Segurança</h6>					
-                                </div>
-                                <ul class="btns">
-                                    <li><a href="#">Seguir</a></li>
-                                </ul>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Trabalho Atual: IBM</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> Presidente Prudente-SP</p>
-                        </div>
-                    </div>		
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb col-lg-3">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">Bootstrap</a>
-                                </li>
-                                <li>
-                                    <a href="#">Jquery</a>
-                                </li>
-                                <li>
-                                    <a href="#">Design</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details col-lg-9">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single"><h4>Gustavo Goncalves Ribeiro</h4></a>
-                                    <h6>Programador Web</h6>					
-                                </div>
-                                <ul class="btns">
-                                    <li><a href="#">Seguir</a></li>
-                                </ul>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Trabalho Atual: Oracle</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> Várzea Paulista-SP</p>
-                        </div>
-                    </div>
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb col-lg-3">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">SQL</a>
-                                </li>
-                                <li>
-                                    <a href="#">MySQL</a>
-                                </li>
-                                <li>
-                                    <a href="#">Modelagem</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details col-lg-9">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single"><h4>Gabriel Martins Pereira</h4></a>
-                                    <h6>Administrador de Banco</h6>					
-                                </div>
-                                <ul class="btns">
-                                    <li><a href="#">Seguir</a></li>
-                                </ul>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Trabalho Atual: Sandisk</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> São Paulo-SP</p>
-                        </div>
-                    </div>
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb col-lg-3">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">Android</a>
-                                </li>
-                                <li>
-                                    <a href="#">GO</a>
-                                </li>
-                                <li>
-                                    <a href="#">IOS</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details col-lg-9">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single"><h4>Thaís Rocha Goncalves</h4></a>
-                                    <h6>Desenvolvedor Mobile</h6>					
-                                </div>
-                                <ul class="btns">
-                                    <li><a href="#">Seguir</a></li>
-                                </ul>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Trabalho Atual: Gameloft</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> Porto Alegre-RS</p>
-                        </div>
-                    </div>															
-                    <div class="single-post d-flex flex-row">
-                        <div class="thumb col-lg-3">
-                            <img src="/img/post.png" alt="">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">Big Data</a>
-                                </li>
-                                <li>
-                                    <a href="#">Python</a>
-                                </li>
-                                <li>
-                                    <a href="#">Analise de Dados</a>					
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="details col-lg-9">
-                            <div class="title d-flex flex-row justify-content-between">
-                                <div class="titles">
-                                    <a href="/single"><h4>Drauzio Varella</h4></a>
-                                    <h6>Analista de Big Data</h6>					
-                                </div>
-                                <ul class="btns">
-                                    <li><a href="#">Seguir</a></li>
-                                </ul>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-                            </p>
-                            <h5>Trabalho Atual: Twitter</h5>
-                            <p class="address"><span class="lnr lnr-map"></span> Palmitão-CE</p>
-                        </div>
-                    </div>
+                            <?php endfor ?>
+                            <li class="page-item <?= $current_page == $pages ? 'disabled' : '' ?>">
+                                <a class="page-link" href="/users?p=<?= $current_page + 1 ?>">Próximo</a>
+                            </li>
+                        </ul>
+                    </nav>
 
                 </div>
 
