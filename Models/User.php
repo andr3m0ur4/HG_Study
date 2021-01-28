@@ -85,6 +85,65 @@
             return false;
         }
 
+        public function update(
+            $name,
+            $last_name,
+            $email,
+            $new_email,
+            //$password = '',
+            //$new_password = '',
+            $job,
+            $description,
+            $current_job,
+            $city,
+            $state,
+            $facebook,
+            $twitter,
+            $linkedin,
+            $github
+        ) {
+            if (!empty($new_email) && $email != $new_email) {
+                if (!$this->verifyEmail($new_email)) {
+                    $email = $new_email;
+                } else {
+                    return false;
+                }
+            }
+
+            $sql = "UPDATE users SET
+                    name = :name,
+                    last_name = :last_name,
+                    email = :email,
+                    job = :job,
+                    description = :description,
+                    current_job = :current_job,
+                    city = :city,
+                    state = :state,
+                    facebook = :facebook,
+                    twitter = :twitter,
+                    linkedin = :linkedin,
+                    github = :github
+                WHERE id = :id";
+
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':name', $name);
+            $sql->bindValue(':last_name', $last_name);
+            $sql->bindValue(':email', $email);
+            $sql->bindValue(':job', $job);
+            $sql->bindValue(':description', $description);
+            $sql->bindValue(':current_job', $current_job);
+            $sql->bindValue(':city', $city);
+            $sql->bindValue(':state', $state);
+            $sql->bindValue(':facebook', $facebook);
+            $sql->bindValue(':twitter', $twitter);
+            $sql->bindValue(':linkedin', $linkedin);
+            $sql->bindValue(':github', $github);
+            $sql->bindValue(':id', $_SESSION['id']);
+            $sql->execute();
+
+            return true;
+        }
+
         private function verifyEmail($email)
         {
             $sql = "SELECT email FROM users WHERE email = :email";

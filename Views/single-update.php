@@ -23,38 +23,75 @@
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-8">
 
-            <form action="#">
+            <form method="POST" enctype="multipart/form-data">
                 <div class="mt-10">
-                    <input type="text" name="first_name" placeholder="João" onFocus="this.placeholder = ''" onBlur="this.placeholder = 'João'" required class="single-input-primary">
+                    <input type="text" name="name" placeholder="Nome" value="<?= $user->name ?>" required class="single-input-primary">
                 </div>
                 <div class="mt-10">
-                    <input type="text" name="last_name" placeholder="Pereira Souza" onFocus="this.placeholder = ''" onBlur="this.placeholder = 'Pereira Souza'" required class="single-input-primary">
+                    <input type="text" name="last_name" placeholder="Sobrenome" value="<?= $user->last_name ?>" required class="single-input-primary">
                 </div>
                 <div class="mt-10">
-                    <input type="email" name="email" placeholder="ShimiraRaioLaser@gmail.com" onFocus="this.placeholder = ''" onBlur="this.placeholder = 'ShimiraRaioLaser@gmail.com'" required class="single-input-primary">
+                    <input type="email" name="email" placeholder="E-mail" value="<?= $user->email ?>" required class="single-input-primary">
                 </div>
                 <div class="mt-10">
-                    <input type="email" name="last_name" placeholder="Novo Email" onFocus="this.placeholder = ''" onBlur="this.placeholder = 'Novo Email'" required class="single-input-primary">
+                    <input type="email" name="new_email" placeholder="Novo E-mail" class="single-input-primary">
                 </div>
                 <div class="mt-10">
-                    <input type="password" name="password" placeholder="Senha" onFocus="this.placeholder = ''" onBlur="this.placeholder = 'Senha'" required class="single-input-primary">
+                    <input type="password" name="password" placeholder="Senha" class="single-input-primary">
                 </div>
                 <div class="mt-10">
-                    <input type="password" name="password" placeholder="Nova Senha" onFocus="this.placeholder = ''" onBlur="this.placeholder = 'Nova Senha'" required class="single-input-primary">
+                    <input type="password" name="new_password" placeholder="Nova Senha" class="single-input-primary">
+                </div>
+                <div class="mt-10">
+                    <input type="text" name="job" placeholder="Profissão" value="<?= $user->job ?>" class="single-input-primary">
+                </div>
+
+                <div class="mt-10">
+                    <input type="text" name="description" placeholder="Fale algo sobre você" value="<?= $user->description ?>" class="single-input-primary">
+                </div>
+
+                <div class="mt-10">
+                    <input type="text" name="current_job" placeholder="Trabalho Atual" value="<?= $user->current_job ?>" class="single-input-primary">
                 </div>
 
                 <div class="input-group-icon mt-10">
                     <div class="icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
                     <div class="form-select" id="default-select">
-                        <select>
-                            <option value="1">Estados</option>
-                            <option value="1">Sudeste</option>
-                            <option value="1">Sul</option>
-                            <option value="1">Centro-Oeste</option>
-                            <option value="1">Norte</option>
-                            <option value="1">Nordeste</option>
+                        <select name="city">
+                            <option disabled>Cidade</option>
+                            <option <?= $user->city == 'Guaratinguetá' ? 'selected' : '' ?>>Guaratinguetá</option>
+                            <option <?= $user->city == 'Lorena' ? 'selected' : '' ?>>Lorena</option>
+                            <option <?= $user->city == 'Pindamonhangaba' ? 'selected' : '' ?>>Pindamonhangaba</option>
+                            <option <?= $user->city == 'Taubaté' ? 'selected' : '' ?>>Taubaté</option>
+                            <option <?= $user->city == 'São José dos Campos' ? 'selected' : '' ?>>São José dos Campos</option>
+                            <option <?= $user->city == 'São Paulo' ? 'selected' : '' ?>>São Paulo</option>
                         </select>
                     </div>
+                </div>
+
+                <div class="single-element-widget mt-10">
+                    <h3 class="mb-10"> Estado:</h3>
+                    <div class="default-select" id="default-select">
+                        <select name="state">
+                            <option value="SP" <?= $user->state == 'SP' ? 'selected' : '' ?>>São Paulo</option>
+                            <option value="RJ" <?= $user->state == 'RJ' ? 'selected' : '' ?>>Rio de Janeiro</option>
+                            <option value="MG" <?= $user->state == 'MG' ? 'selected' : '' ?>>Minas Gerais</option>
+                            <option value="ES" <?= $user->state == 'ES' ? 'selected' : '' ?>>Espírito Santo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mt-10">
+                    <input type="url" name="facebook" placeholder="Facebook" value="<?= $user->facebook ?>" class="single-input-primary">
+                </div>
+                <div class="mt-10">
+                    <input type="url" name="twitter" placeholder="Twitter" value="<?= $user->twitter ?>" class="single-input-primary">
+                </div>
+                <div class="mt-10">
+                    <input type="url" name="linkedin" placeholder="LinkedIn" value="<?= $user->linkedin ?>" class="single-input-primary">
+                </div>
+                <div class="mt-10">
+                    <input type="url" name="github" placeholder="GitHub" value="<?= $user->github ?>" class="single-input-primary">
                 </div>
 
                 <div class="text-center mt-10">
@@ -67,3 +104,32 @@
     </div>
 </section>
 <!-- End contact-page Area -->
+
+<?php if ($success) : ?>
+    <span id="success"></span>
+<?php endif ?>
+
+<?php if ($error) : ?>
+    <span id="error"></span>
+<?php endif ?>
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-title"></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="font-weight-bold modal-text"></p>
+                <a class="modal-link" href="#"></a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -35,4 +35,10 @@
 
             $this->loadTemplate('login', $data);
         }
+
+        public function logout()
+        {
+            session_unset();
+            header('Location: /login');
+        }
     }

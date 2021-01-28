@@ -48,8 +48,15 @@
                         <li><a href="/users">Orientadores</a></li>
                         <li><a href="/blog-home">Blog</a></li>
                         <li><a href="/contact">Contato</a></li>
-                        <li><a class="ticker-btn" href="/register">Cadastre-se</a></li>
-                        <li><a class="ticker-btn" href="/login">Login</a></li>
+                        <?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) : ?>
+                            <li><a class="ticker-btn" href="/single/<?= $_SESSION['id'] ?>">
+                                Bem vindo, <?= $_SESSION['name']?>
+                            </a></li>
+                            <li><a class="ticker-btn" href="/logout">Sair</a></li>
+                        <?php else : ?>
+                            <li><a class="ticker-btn" href="/register">Cadastre-se</a></li>
+                            <li><a class="ticker-btn" href="/login">Login</a></li>
+                        <?php endif ?>
                     </ul>
                 </nav><!-- #nav-menu-container -->		    		
             </div>

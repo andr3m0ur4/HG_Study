@@ -5,16 +5,12 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
                 <h1 class="text-white">
-                    Detalhes do Orientador
+                    Detalhes do Usuário
                 </h1>
-                <!-- <h1 class="text-white">
-                    Informações da Conta
-                </h1> -->
                 <p class="text-white link-nav">
                     <a href="/">Home</a>
                     <span class="lnr lnr-arrow-right"></span>
-                    <a href="/single">Detalhes de Orientador</a>
-                    <!-- <a href="/single.html">Informações da Conta</a> -->
+                    <a href="/single/<?= $user->id ?>">Detalhes do Usuário</a>
                 </p>
             </div>
         </div>
@@ -42,7 +38,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="details">
+                    <div class="details col-lg-9">
                         <div class="title d-flex flex-row justify-content-between">
                             <div class="titles">
                                 <a href="#">
@@ -51,7 +47,11 @@
                                 <h6><?= $user->job ?></h6>
                             </div>
                             <ul class="btns">
-                                <li><a href="#">Seguir</a></li>
+                                <?php if ($id == $user->id) : ?>
+                                    <li><a href="/single/update">Editar</a></li>
+                                <?php else : ?>
+                                    <li><a href="#">Seguir</a></li>
+                                <?php endif ?>
                             </ul>
                         </div>
                         <p>
@@ -68,9 +68,11 @@
                     <p>
                         <?= nl2br($user->biography) ?>
                     </p>
-                    <ul class="btns">
-                        <li><a href="#">Editar</a></li>
-                    </ul>
+                    <?php if ($id == $user->id) : ?>
+                        <ul class="btns">
+                            <li><a href="#">Editar</a></li>
+                        </ul>
+                    <?php endif ?>
                 </div>
 
                 <div class="single-post job-experience">
@@ -101,9 +103,11 @@
                             <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
                         </li>																											
                     </ul>
-                    <ul class="btns">
-                        <li><a href="#">Editar</a></li>
-                    </ul>
+                    <?php if ($id == $user->id) : ?>
+                        <ul class="btns">
+                            <li><a href="#">Editar</a></li>
+                        </ul>
+                    <?php endif ?>
                 </div>
 
                 <div class="single-post job-experience">
@@ -126,9 +130,11 @@
                             <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
                         </li>													
                     </ul>
-                    <ul class="btns">
-                        <li><a href="#">Editar</a></li>
-                    </ul>
+                    <?php if ($id == $user->id) : ?>
+                        <ul class="btns">
+                            <li><a href="#">Editar</a></li>
+                        </ul>
+                    <?php endif ?>
                 </div>
 
                 <div class="single-post job-experience">
@@ -147,9 +153,11 @@
                             <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
                         </li>																										
                     </ul>
-                    <ul class="btns">
-                        <li><a href="#">Editar</a></li>
-                    </ul>
+                    <?php if ($id == $user->id) : ?>
+                        <ul class="btns">
+                            <li><a href="#">Editar</a></li>
+                        </ul>
+                    <?php endif ?>
                 </div>
             </div>
 
@@ -172,19 +180,21 @@
 </section>
 <!-- End post Area -->
 
-<!-- Start callto-action Area -->
-<section class="callto-action-area section-gap" id="callto-action">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="menu-content col-lg-9">
-                <div class="title text-center">
-                    <h1 class="mb-10 text-white">Deseja ver mais?</h1>
-                    <p class="text-white">Cadastre-se agora como tutor ou aluno e veja as vantagens de se tornar um.</p>
+<?php if (!isset($_SESSION['id'])) : ?>
+    <!-- Start callto-action Area -->
+    <section class="callto-action-area section-gap" id="callto-action">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content col-lg-9">
+                    <div class="title text-center">
+                        <h1 class="mb-10 text-white">Deseja ver mais?</h1>
+                        <p class="text-white">Cadastre-se agora como tutor ou aluno e veja as vantagens de se tornar um.</p>
 
-                    <a class="primary-btn" href="/register">Cadastrar</a>
+                        <a class="primary-btn" href="/register">Cadastrar</a>
+                    </div>
                 </div>
             </div>
-        </div>	
-    </div>	
-</section>
-<!-- End calto-action Area -->
+        </div>
+    </section>
+    <!-- End calto-action Area -->
+<?php endif ?>
