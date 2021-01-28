@@ -2,6 +2,10 @@ $(() => {
     if (location.pathname == '/register') {
         register()
     }
+
+    if (location.pathname == '/login') {
+        login()
+    }
 })
 
 const register = () => {
@@ -28,5 +32,14 @@ const register = () => {
             $('.modal-title').addClass('text-warning')
             $('.modal-text').html('Prencha todos os campos.')
             $('#modal').modal('show')
+    }
+}
+
+const login = () => {
+    if ($('#error').length > 0) {
+        $('.modal-title').html('Atenção!')
+        $('.modal-title').addClass('text-danger')
+        $('.modal-text').html('Usuário e/ou senha não existe.')
+        $('#modal').modal('show')
     }
 }

@@ -45,6 +45,25 @@
             return $sql->counter;
         }
 
+        public function login($email, $password)
+        {
+            $sql = "SELECT id, name FROM users WHERE email = :email AND password = :password";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':email', $email);
+            $sql->bindValue(':password', $password);
+            $sql->execute();
+
+            if ($sql->rowCount() > 0) {
+                $data = $sql->fetch(\PDO::FETCH_OBJ);
+                $_SESSION['id'] = $data->id;
+                $_SESSION['name'] = $data->name;
+
+                return true;
+            }
+
+            return false;
+        }
+
         public function insert($name, $last_name, $email, $password, $city, $state)
         {
             if (!$this->verifyEmail($email)) {

@@ -22,4 +22,15 @@
             
             require "../Views/{$viewName}.php";
         }
+
+        protected function validateFields()
+        {
+            foreach ($_POST as $key) {
+                if (empty($key)) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
