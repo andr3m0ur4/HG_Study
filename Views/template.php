@@ -145,5 +145,7 @@
     <script src="/assets/js/parallax.min.js"></script>
     <script src="/assets/js/mail-script.js"></script>
     <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/script.js"></script>
+    
 </body>
 </html>

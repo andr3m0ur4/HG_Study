@@ -44,5 +44,40 @@
 
             return $sql->counter;
         }
+
+        public function insert($name, $last_name, $email, $password, $city, $state)
+        {
+            if (!$this->verifyEmail($email)) {
+                $sql = "INSERT INTO users (name, last_name, email, password, city, state)
+                VALUES (:name, :last_name, :email, :password, :city, :state)";
+
+                $sql = $this->db->prepare($sql);
+                $sql->bindValue(':name', $name);
+                $sql->bindValue(':last_name', $last_name);
+                $sql->bindValue(':email', $email);
+                $sql->bindValue(':password', $password);
+                $sql->bindValue(':city', $city);
+                $sql->bindValue(':state', $state);
+                $sql->execute();
+
+                return true;
+            }
+            
+            return false;
+        }
+
+        private function verifyEmail($email)
+        {
+            $sql = "SELECT email FROM users WHERE email = :email";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':email', $email);
+            $sql->execute();
+
+            if ($sql->rowCount() > 0) {
+                return true;
+            }
+
+            return false;
+        }
     }
     

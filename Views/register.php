@@ -23,39 +23,43 @@
     <div class="container col-8">
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <form action="#">
+                <form method="POST">
                     <div class="mt-10">
-                        <input type="text" name="first_name" placeholder="Nome" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome'" required class="single-input-primary">
+                        <input type="text" name="name" placeholder="Nome" required class="single-input-primary">
                     </div>
                     <div class="mt-10">
-                        <input type="text" name="last_name" placeholder="Sobrenome" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Sobrenome'" required class="single-input-primary">
+                        <input type="text" name="last_name" placeholder="Sobrenome" required class="single-input-primary">
                     </div>
                     <div class="mt-10">
-                        <input type="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required class="single-input-primary">
+                        <input type="email" name="email" placeholder="Email" required class="single-input-primary">
                     </div>
                     <div class="mt-10">
-                        <input type="password" name="password" placeholder="Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Senha'" required class="single-input-primary">
+                        <input type="password" name="password" placeholder="Senha" required class="single-input-primary">
                     </div>
 
                     <div class="input-group-icon mt-10">
                         <div class="icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
                         <div class="form-select" id="default-select">
-                            <select>
-                                <option value="1">Região</option>
-                                <option value="1">Bangladesh</option>
-                                <option value="1">India</option>
-                                <option value="1">England</option>
-                                <option value="1">Srilanka</option>
+                            <select name="city">
+                                <option disabled>Cidade</option>
+                                <option>Guaratinguetá</option>
+                                <option>Lorena</option>
+                                <option>Pindamonhangaba</option>
+                                <option>Taubaté</option>
+                                <option>São José dos Campos</option>
+                                <option>São Paulo</option>
                             </select>
                         </div>
                     </div>
 
-                    <div class="single-element-widget mt-5">
-                        <h3 class="mb-30"> Você é :</h3>
+                    <div class="single-element-widget mt-10">
+                        <h3 class="mb-10"> Estado:</h3>
                         <div class="default-select" id="default-select">
-                            <select>
-                                <option value="1">Aluno</option>
-                                <option value="2">Orientador</option>
+                            <select name="state">
+                                <option value="SP">São Paulo</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="ES">Espírito Santo</option>
                             </select>
                         </div>
                     </div>
@@ -71,3 +75,36 @@
     </div>
 </div>
 <!-- End contact-page Area -->
+
+<?php if ($error) : ?>
+    <span id="error"></span>
+<?php endif ?>
+
+<?php if (!is_null($success)) : ?>
+    <?php if ($success) : ?>
+        <span id="success">true</span>
+    <?php else : ?>
+        <span id="success">false</span>
+    <?php endif ?>
+<?php endif ?>
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-title"></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="font-weight-bold modal-text"></p>
+                <a class="modal-link" href="#"></a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
