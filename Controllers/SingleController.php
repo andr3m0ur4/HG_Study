@@ -33,6 +33,7 @@
 
             $success = false;
             $error = false;
+            $error_picture = false;
             $user = new User();
 
             if (isset($_POST['email']) && !empty($_POST['email'])) {
@@ -40,8 +41,6 @@
                 $last_name = addslashes($_POST['last_name']);
                 $email = addslashes($_POST['email']);
                 $new_email = addslashes($_POST['new_email']);
-                $password = addslashes($_POST['password']);
-                $new_password = addslashes($_POST['new_password']);
                 $job = addslashes($_POST['job']);
                 $description = addslashes($_POST['description']);
                 $current_job = addslashes($_POST['current_job']);
@@ -51,6 +50,14 @@
                 $twitter = addslashes($_POST['twitter']);
                 $linkedin = addslashes($_POST['linkedin']);
                 $github = addslashes($_POST['github']);
+                $picture = addslashes($_POST['picture']);
+                $new_picture = $_FILES['new_picture'];
+
+                if ($name_picture = $this->uploadPicture($new_picture, $picture)) {
+                    $picture = $name_picture;
+                } else {
+                    $error_picture = true;
+                }
 
                 if ($user->update(
                     $name,
@@ -65,7 +72,8 @@
                     $facebook,
                     $twitter,
                     $linkedin,
-                    $github
+                    $github,
+                    $picture
                 )) {
                     $success = true;
                 } else {
@@ -76,9 +84,31 @@
             $data = [
                 'user' => $user->get($_SESSION['id']),
                 'error' => $error,
+                'error_picture' => $error_picture,
                 'success' => $success
             ];
 
             $this->loadTemplate('single-update', $data);
+        }
+
+        private function uploadPicture($picture, $old_picture)
+        {
+            if (!empty($picture['tmp_name'])) {
+                if ($picture['type'] == 'image/jpeg') {
+                    $name = md5(time() . rand(0, 9999)) . '.jpg';
+                } elseif ($picture['type'] == 'image/png') {
+                    $name = md5(time() . rand(0, 9999)) . '.png';
+                } else {
+                    return false;
+                }
+
+                move_uploaded_file($picture['tmp_name'], "./img/user/$name");
+
+                @unlink("./img/user/$old_picture");
+
+                return $name;
+            }
+
+            return false;
         }
     }

@@ -240,7 +240,11 @@
                     </div>
 
                     <div class="single-widget protfolio-widget border border-secondary">
-                        <img src="/img/blog/user2.jpg" alt="">
+                        <?php if (empty($post->user_picture)) : ?>
+                            <img src="/img/post.png" alt="Foto de Perfil">
+                        <?php else : ?>
+                            <img src="/img/user/<?= $post->user_picture ?>" alt="Foto de Perfil" class="img-fluid">
+                        <?php endif ?>
                         <a href="/single/<?= $post->id_user ?>">
                             <h4><?= "{$post->name} {$post->last_name}"?></h4>
                         </a>

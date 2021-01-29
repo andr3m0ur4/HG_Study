@@ -1,3 +1,15 @@
+const readImage = (e) => {
+    if (e.target.files && e.target.files[0]) {
+        let file = new FileReader()
+
+        file.onload = e => {
+            $('#preview').attr('src', e.target.result)
+        }
+
+        file.readAsDataURL(e.target.files[0])
+    }
+}
+
 $(() => {
     if (location.pathname == '/register') {
         register()
@@ -62,4 +74,13 @@ const update = () => {
         $('.modal-text').html('E-mail já existe. Por favor, tente outro.')
         $('#modal').modal('show')
     }
+
+    if ($('#error_picture').length > 0) {
+        $('.modal-title').html('Atenção!')
+        $('.modal-title').addClass('text-warning')
+        $('.modal-text').html('Arquivo de imagem deve ser no formato PNG ou JPG.')
+        $('#modal').modal('show')
+    }
+
+    $('#imgPicture').change(readImage)
 }

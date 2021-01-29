@@ -27,7 +27,8 @@
         {
             $array = [];
 
-            $sql = "SELECT p.*, u.name, u.last_name, u.id AS id_user, u.description
+            $sql = "SELECT
+                    p.*, u.name, u.last_name, u.id AS id_user, u.description, u.picture AS user_picture
                 FROM posts AS p
                 INNER JOIN users AS u ON p.id_user = u.id
                 WHERE p.id = :id";

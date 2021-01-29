@@ -19,7 +19,7 @@
 <!-- End banner Area -->
 
 <!-- Start contact-page Area -->
-<section class="section-top-border">
+<section class="section-top-border container">
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-8">
 
@@ -94,9 +94,22 @@
                     <input type="url" name="github" placeholder="GitHub" value="<?= $user->github ?>" class="single-input-primary">
                 </div>
 
+                <div class="thumb mt-10">
+                    <label class="h3 mb-10" for="imgPicture">Escolher Foto:</label>
+                    <input type="hidden" name="picture" value="<?= $user->picture ?>">
+                    <input type="file" id="imgPicture" name="new_picture" class="single-input-primary btn-block mb-3">
+                    <figure class="container ml-0 w-25">
+                        <?php if (!empty($user->picture)) : ?>
+                            <img class="img-fluid" id="preview" src="/img/user/<?= $user->picture ?>" alt="Foto de Perfil">
+                        <?php else : ?>
+                            <img class="img-fluid" id="preview" src="/img/post.png" alt="Foto de Perfil">
+                        <?php endif ?>
+                    </figure>
+                </div>
+
                 <div class="text-center mt-10">
                     <button class="genric-btn primary circle arrow">
-                        Confirmar<span class="lnr lnr-arrow-right"></span>
+                        Salvar<span class="lnr lnr-arrow-right"></span>
                     </button>
                 </div>
             </form>
@@ -111,6 +124,10 @@
 
 <?php if ($error) : ?>
     <span id="error"></span>
+<?php endif ?>
+
+<?php if ($error_picture) : ?>
+    <span id="error_picture"></span>
 <?php endif ?>
 
 <!-- Modal -->

@@ -90,8 +90,6 @@
             $last_name,
             $email,
             $new_email,
-            //$password = '',
-            //$new_password = '',
             $job,
             $description,
             $current_job,
@@ -100,7 +98,8 @@
             $facebook,
             $twitter,
             $linkedin,
-            $github
+            $github,
+            $picture
         ) {
             if (!empty($new_email) && $email != $new_email) {
                 if (!$this->verifyEmail($new_email)) {
@@ -122,7 +121,8 @@
                     facebook = :facebook,
                     twitter = :twitter,
                     linkedin = :linkedin,
-                    github = :github
+                    github = :github,
+                    picture = :picture
                 WHERE id = :id";
 
             $sql = $this->db->prepare($sql);
@@ -138,6 +138,7 @@
             $sql->bindValue(':twitter', $twitter);
             $sql->bindValue(':linkedin', $linkedin);
             $sql->bindValue(':github', $github);
+            $sql->bindValue(':picture', $picture);
             $sql->bindValue(':id', $_SESSION['id']);
             $sql->execute();
 

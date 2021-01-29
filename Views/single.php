@@ -24,8 +24,12 @@
         <div class="row justify-content-center d-flex">
             <div class="col-lg-8 post-list">
                 <div class="single-post d-flex flex-row">
-                    <div class="thumb">
-                        <img src="/img/post.png" alt="">
+                    <div class="thumb col-lg-3">
+                        <?php if (empty($user->picture)) : ?>
+                            <img src="/img/post.png" alt="Foto de Perfil">
+                        <?php else : ?>
+                            <img src="/img/user/<?= $user->picture ?>" alt="Foto de Perfil" class="img-fluid">
+                        <?php endif ?>
                         <ul class="tags">
                             <li>
                                 <a href="#">SQL</a>

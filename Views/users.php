@@ -28,7 +28,11 @@
                     <?php foreach ($users as $user) : ?>
                         <div class="single-post d-flex flex-row">
                             <div class="thumb col-lg-3">
-                                <img src="/img/post.png" alt="">
+                                <?php if (empty($user->picture)) : ?>
+                                    <img src="/img/post.png" alt="Foto de Perfil">
+                                <?php else : ?>
+                                    <img src="/img/user/<?= $user->picture ?>" alt="Foto de Perfil" class="img-fluid">
+                                <?php endif ?>
                                 <ul class="tags">
                                     <li>
                                         <a href="#">SQL</a>
