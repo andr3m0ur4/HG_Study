@@ -145,6 +145,17 @@
             return true;
         }
 
+        public function updatePassword($password)
+        {
+            $sql = "UPDATE users SET password = :password WHERE id = :id";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':password', $password);
+            $sql->bindValue(':id', $_SESSION['id']);
+            $sql->execute();
+
+            return true;
+        }
+
         private function verifyEmail($email)
         {
             $sql = "SELECT email FROM users WHERE email = :email";
@@ -157,6 +168,22 @@
             }
 
             return false;
+        }
+
+        public function verifyPassword($password)
+        {
+            $result = false;
+
+            $sql = "SELECT password FROM users WHERE id = :id";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':id', $_SESSION['id']);
+            $sql->execute();
+
+            if ($sql->rowCount() > 0) {
+                $result = $password == $sql->fetch(\PDO::FETCH_OBJ)->password;
+            }
+
+            return $result;
         }
     }
     

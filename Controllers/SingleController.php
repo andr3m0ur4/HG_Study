@@ -53,9 +53,11 @@
                 $picture = addslashes($_POST['picture']);
                 $new_picture = $_FILES['new_picture'];
 
-                if ($name_picture = $this->uploadPicture($new_picture, $picture)) {
+                $name_picture = $this->uploadPicture($new_picture, $picture);
+
+                if (is_string($name_picture)) {
                     $picture = $name_picture;
-                } else {
+                } elseif ($name_picture === false) {
                     $error_picture = true;
                 }
 
@@ -91,6 +93,32 @@
             $this->loadTemplate('single-update', $data);
         }
 
+        public function updatePassword()
+        {
+            if (isset($_POST['password']) && !empty($_POST['password'])) {
+                $password = md5(addslashes($_POST['password']));
+                $new_password = addslashes($_POST['new_password']);
+                $new_password2 = addslashes($_POST['new_password2']);
+
+                $user = new User();
+
+                if ($user->verifyPassword($password)) {
+                    if ($new_password === $new_password2) {
+                        $user->updatePassword(md5($new_password));
+
+                        echo 1;
+                        exit;
+                    }
+
+                    echo 2;
+                    exit;
+                }
+
+                echo 3;
+                exit;
+            }
+        }
+
         private function uploadPicture($picture, $old_picture)
         {
             if (!empty($picture['tmp_name'])) {
@@ -108,7 +136,5 @@
 
                 return $name;
             }
-
-            return false;
         }
     }

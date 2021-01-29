@@ -37,10 +37,7 @@
                     <input type="email" name="new_email" placeholder="Novo E-mail" class="single-input-primary">
                 </div>
                 <div class="mt-10">
-                    <input type="password" name="password" placeholder="Senha" class="single-input-primary">
-                </div>
-                <div class="mt-10">
-                    <input type="password" name="new_password" placeholder="Nova Senha" class="single-input-primary">
+                    <a href="#" id="change-password" class="genric-btn default-border radius">Alterar Senha</a>
                 </div>
                 <div class="mt-10">
                     <input type="text" name="job" placeholder="Profissão" value="<?= $user->job ?>" class="single-input-primary">
@@ -97,7 +94,7 @@
                 <div class="thumb mt-10">
                     <label class="h3 mb-10" for="imgPicture">Escolher Foto:</label>
                     <input type="hidden" name="picture" value="<?= $user->picture ?>">
-                    <input type="file" id="imgPicture" name="new_picture" class="single-input-primary btn-block mb-3">
+                    <input type="file" id="img-picture" name="new_picture" class="single-input-primary btn-block mb-3">
                     <figure class="container ml-0 w-25">
                         <?php if (!empty($user->picture)) : ?>
                             <img class="img-fluid" id="preview" src="/img/user/<?= $user->picture ?>" alt="Foto de Perfil">
@@ -145,6 +142,7 @@
                 <a class="modal-link" href="#"></a>
             </div>
             <div class="modal-footer">
+                <button type="button" id="btn-confirm" class="genric-btn primary radius d-none"></button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             </div>
         </div>
