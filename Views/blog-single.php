@@ -44,9 +44,11 @@
                                 <?= nl2br($post->content) ?>
                             </p>
 
-                            <blockquote class="generic-blockquote">
-                                “<?= $post->quote ?>” 
-                            </blockquote>
+                            <?php if (!empty($post->quote)) : ?>
+                                <blockquote class="generic-blockquote">
+                                    “<?= $post->quote ?>”
+                                </blockquote>
+                            <?php endif ?>
 
                             <p>
                                 <?= nl2br($post->content2) ?>

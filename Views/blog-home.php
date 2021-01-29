@@ -27,7 +27,7 @@
                 <div class="col-lg-8 post-list blog-post-list">
                     <?php foreach ($posts as $post) : ?>
                         <div class="single-post">
-                            <img class="img-fluid" src="/img/blog/<?= $post->picture ?>" alt="">
+                            <img class="img-fluid" src="/img/blog/<?= $post->picture ?>" alt="Foto da Publicação">
                             <ul class="tags">
                                 <li><a href="#">Art, </a></li>
                                 <li><a href="#">Technology, </a></li>
@@ -39,7 +39,7 @@
                                 </h1>
                             </a>
                             <p>
-                                <?= $post->content ?>
+                                <?= nl2br(substr($post->content, 0, 500)) . '...' ?>
                             </p>
                             <div class="bottom-meta">
                                 <div class="user-details row align-items-center">
@@ -64,21 +64,27 @@
                     <nav aria-label="Navegação de página">
                         <ul class="pagination justify-content-center">
                             <li class="page-item <?= $current_page == 1 ? 'disabled' : '' ?>">
-                                <a class="page-link" href="/users?p=<?= $current_page - 1 ?>" tabindex="-1">Anterior</a>
+                                <a class="page-link" href="/blog-home?p=<?= $current_page - 1 ?>" tabindex="-1">Anterior</a>
                             </li>
                             <?php for ($i = 0; $i < $pages; $i++) : ?>
                                 <li class="page-item <?= $current_page == $i + 1 ? 'active' : '' ?>">
-                                    <a class="page-link" href="/users?p=<?= $i + 1 ?>"><?= $i + 1 ?></a>
+                                    <a class="page-link" href="/blog-home?p=<?= $i + 1 ?>"><?= $i + 1 ?></a>
                                 </li>
                             <?php endfor ?>
                             <li class="page-item <?= $current_page == $pages ? 'disabled' : '' ?>">
-                                <a class="page-link" href="/users?p=<?= $current_page + 1 ?>">Próximo</a>
+                                <a class="page-link" href="/blog-home?p=<?= $current_page + 1 ?>">Próximo</a>
                             </li>
                         </ul>
                     </nav>
                 </div>
 
                 <div class="col-lg-4 sidebar">
+                    <?php if (isset($_SESSION['id'])) : ?>
+                        <div class="text-center mb-25 h2">
+                            <a href="blog-home/blog-add" class="genric-btn primary circle">Adicionar nova Publicação</a>
+                        </div>
+                    <?php endif ?>
+
                     <div class="single-widget search-widget border border-secondary">
                         <form class="example m-auto mw-100" action="#">
                             <input type="text" class="" placeholder="Pesquisar" name="search2">

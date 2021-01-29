@@ -153,6 +153,10 @@ $(() => {
     if (location.pathname == '/single/update') {
         update()
     }
+
+    if (location.pathname == '/blog-home/blog-add') {
+        blogUpdate()
+    }
 })
 
 const register = () => {
@@ -177,19 +181,21 @@ const register = () => {
     }
 
     if ($('#error').length > 0) {
-            $('.modal-title').html('Atenção!')
-            $('.modal-title').addClass('text-warning')
-            $('.modal-text').html('Prencha todos os campos.')
-            $('#modal').modal('show')
+        createModal(
+            'Atenção!',
+            'text-warning',
+            'Preencha todos os campos.'
+        )
     }
 }
 
 const login = () => {
     if ($('#error').length > 0) {
-        $('.modal-title').html('Atenção!')
-        $('.modal-title').addClass('text-danger')
-        $('.modal-text').html('Usuário e/ou senha não existe.')
-        $('#modal').modal('show')
+        createModal(
+            'Atenção!',
+            'text-danger',
+            'Usuário e/ou senha não existe.'
+        )
     }
 }
 
@@ -203,19 +209,45 @@ const update = () => {
     }
 
     if ($('#error').length > 0) {
-        $('.modal-title').html('Atenção!')
-        $('.modal-title').addClass('text-warning')
-        $('.modal-text').html('E-mail já existe. Por favor, tente outro.')
-        $('#modal').modal('show')
+        createModal(
+            'Atenção!',
+            'text-warning',
+            'E-mail já existe. Por favor, tente outro.'
+        )
     }
 
     if ($('#error_picture').length > 0) {
-        $('.modal-title').html('Atenção!')
-        $('.modal-title').addClass('text-warning')
-        $('.modal-text').html('Arquivo de imagem deve ser no formato PNG ou JPG.')
-        $('#modal').modal('show')
+        createModal(
+            'Atenção!',
+            'text-warning',
+            'Arquivo de imagem deve ser no formato PNG ou JPG.'
+        )
     }
 
     $('#img-picture').change(readImage)
     $('#change-password').click(changePassword)
+}
+
+const blogUpdate = () => {
+    if ($('#error_picture').length > 0) {
+        createModal(
+            'Atenção!',
+            'text-warning',
+            'Arquivo de imagem deve ser no formato PNG ou JPG.'
+        )
+    }
+
+    if ($('#success').length > 0) {
+        createModal(
+            'Sucesso!',
+            'text-success',
+            'A sua publicação foi publicada com sucesso.'
+        )
+
+        $('#modal').on('hidden.bs.modal', () => {
+            window.location.href = '/blog-home'
+        })
+    }
+
+    $('#img-picture').change(readImage)
 }

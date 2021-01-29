@@ -52,5 +52,21 @@
 
             return $sql->counter;
         }
+
+        public function insert($title, $content, $quote = '', $content2 = '', $picture)
+        {
+            $sql = "INSERT INTO posts (title, content, quote, content2, picture, id_user)
+                VALUES (:title, :content, :quote, :content2, :picture, :id_user)";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':title', $title);
+            $sql->bindValue(':content', $content);
+            $sql->bindValue(':quote', $quote);
+            $sql->bindValue(':content2', $content2);
+            $sql->bindValue(':picture', $picture);
+            $sql->bindValue(':id_user', $_SESSION['id']);
+            $sql->execute();
+
+            return true;
+        }
     }
     
