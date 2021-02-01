@@ -28,7 +28,7 @@
             $array = [];
 
             $sql = "SELECT
-                    p.*, u.name, u.last_name, u.id AS id_user, u.description, u.picture AS user_picture
+                    p.*, u.name, u.last_name, u.description, u.picture AS user_picture
                 FROM posts AS p
                 INNER JOIN users AS u ON p.id_user = u.id
                 WHERE p.id = :id";
@@ -42,6 +42,22 @@
             }
 
             return $array;
+        }
+
+        public function getIdUser($id)
+        {
+            $id_user = 0;
+
+            $sql = "SELECT id_user FROM posts WHERE id = :id";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':id', $id);
+            $sql->execute();
+
+            if ($sql->rowCount() > 0) {
+                $id_user = $sql->fetch(\PDO::FETCH_OBJ)->id_user;
+            }
+
+            return $id_user;
         }
 
         public function getTotal()
@@ -64,6 +80,28 @@
             $sql->bindValue(':content2', $content2);
             $sql->bindValue(':picture', $picture);
             $sql->bindValue(':id_user', $_SESSION['id']);
+            $sql->execute();
+
+            return true;
+        }
+
+        public function update($id, $title, $content, $quote = '', $content2 = '', $picture)
+        {
+            $sql = "UPDATE posts SET
+                    title = :title,
+                    content = :content,
+                    quote = :quote,
+                    content2 = :content2,
+                    picture = :picture
+                WHERE id = :id";
+
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':title', $title);
+            $sql->bindValue(':content', $content);
+            $sql->bindValue(':quote', $quote);
+            $sql->bindValue(':content2', $content2);
+            $sql->bindValue(':picture', $picture);
+            $sql->bindValue(':id', $id);
             $sql->execute();
 
             return true;

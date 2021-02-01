@@ -5,12 +5,12 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
                 <h1 class="text-white">
-                    Publicação
+                    Minha Publicação
                 </h1>
                 <p class="text-white">
                     <a href="/">Home </a>
                     <span class="lnr lnr-arrow-right"></span>
-                    <a href="/single/update">Publicação</a>
+                    <a href="/blog-single/blog-add">Minha Publicação</a>
                 </p>
             </div>											
         </div>
@@ -25,16 +25,16 @@
 
             <form method="POST" enctype="multipart/form-data">
                 <div class="mt-10">
-                    <input type="text" name="title" placeholder="Título" required class="single-input-primary">
+                    <input type="text" name="title" placeholder="Título" value="<?= $post->title ?>" required class="single-input-primary">
                 </div>
                 <div class="mt-10">
-                    <textarea class="single-textarea" name="content" placeholder="Conteúdo" required></textarea>
+                    <textarea class="single-textarea" name="content" placeholder="Conteúdo" required><?= $post->content ?></textarea>
                 </div>
                 <div class="mt-10">
-                    <textarea class="single-textarea" name="quote" placeholder="Alguma citação (opcional)"></textarea>
+                    <textarea class="single-textarea" name="quote" placeholder="Alguma citação (opcional)"><?= $post->quote ?></textarea>
                 </div>
                 <div class="mt-10">
-                    <textarea class="single-textarea" name="content2" placeholder="Mais conteúdo (opcional)"></textarea>
+                    <textarea class="single-textarea" name="content2" placeholder="Mais conteúdo (opcional)"><?= $post->content2 ?></textarea>
                 </div>
 
                 <!-- <div class="input-group-icon mt-10">
@@ -48,11 +48,11 @@
 
                 <div class="thumb mt-10">
                     <label class="h3 mb-10" for="imgPicture">Escolher Foto para a publicação:</label>
-                    <input type="hidden" name="picture" value="<?= $user->picture ?>">
+                    <input type="hidden" name="picture" value="<?= $post->picture ?>">
                     <input type="file" id="img-picture" name="new_picture" class="single-input-primary btn-block mb-3">
                     <figure class="container ml-0 w-25">
-                        <?php if (!empty($user->picture)) : ?>
-                            <img class="img-fluid" id="preview" src="/img/user/<?= $user->picture ?>" alt="Foto de Perfil">
+                        <?php if (!empty($post->picture)) : ?>
+                            <img class="img-fluid" id="preview" src="/img/blog/<?= $post->picture ?>" alt="Foto de Perfil">
                         <?php else : ?>
                             <img class="img-fluid" id="preview" src="/img/blog/post.png" alt="Foto da Publicação">
                         <?php endif ?>

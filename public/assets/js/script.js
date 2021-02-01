@@ -154,7 +154,11 @@ $(() => {
         update()
     }
 
-    if (location.pathname == '/blog-home/blog-add') {
+    if (location.pathname == '/blog-single/blog-add') {
+        blogAdd()
+    }
+
+    if (location.pathname.slice(0, 24) == '/blog-single/blog-update') {
         blogUpdate()
     }
 })
@@ -228,7 +232,7 @@ const update = () => {
     $('#change-password').click(changePassword)
 }
 
-const blogUpdate = () => {
+const blogAdd = () => {
     if ($('#error_picture').length > 0) {
         createModal(
             'Atenção!',
@@ -246,6 +250,30 @@ const blogUpdate = () => {
 
         $('#modal').on('hidden.bs.modal', () => {
             window.location.href = '/blog-home'
+        })
+    }
+
+    $('#img-picture').change(readImage)
+}
+
+const blogUpdate = () => {
+    if ($('#error_picture').length > 0) {
+        createModal(
+            'Atenção!',
+            'text-warning',
+            'Arquivo de imagem deve ser no formato PNG ou JPG.'
+        )
+    }
+
+    if ($('#success').length > 0) {
+        createModal(
+            'Sucesso!',
+            'text-success',
+            'A sua publicação foi atualizada com sucesso.'
+        )
+
+        $('#modal').on('hidden.bs.modal', () => {
+            window.location.href = '/blog-single/' + parseInt(location.pathname.slice(25))
         })
     }
 

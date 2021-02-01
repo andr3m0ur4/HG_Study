@@ -241,6 +241,12 @@
                         </form>								
                     </div>
 
+                    <?php if ($_SESSION['id'] == $post->id_user) : ?>
+                        <div class="text-center mb-25 h2">
+                            <a href="/blog-single/blog-update/<?= $post->id ?>" class="genric-btn primary circle e-large">Editar Publicação</a>
+                        </div>
+                    <?php endif ?>
+
                     <div class="single-widget protfolio-widget border border-secondary">
                         <?php if (empty($post->user_picture)) : ?>
                             <img src="/img/post.png" alt="Foto de Perfil">

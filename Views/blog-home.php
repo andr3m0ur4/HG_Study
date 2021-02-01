@@ -81,7 +81,7 @@
                 <div class="col-lg-4 sidebar">
                     <?php if (isset($_SESSION['id'])) : ?>
                         <div class="text-center mb-25 h2">
-                            <a href="blog-home/blog-add" class="genric-btn primary circle">Adicionar nova Publicação</a>
+                            <a href="blog-single/blog-add" class="genric-btn primary circle">Adicionar nova Publicação</a>
                         </div>
                     <?php endif ?>
 
