@@ -56,14 +56,17 @@
 
                         </div>
                         <div class="bottom-meta">
-                            <div class="user-details row align-items-center">
+                            <div class="user-details row">
                                 <div class="comment-wrap col-lg-6 col-sm-6">
                                     <ul>
                                         <li><a href="#"><span class="lnr lnr-heart"></span>	4 likes</a></li>
                                         <li><a href="#"><span class="lnr lnr-bubble"></span> 06 Comments</a></li>
                                     </ul>
                                 </div>
-                                <div class="social-wrap col-lg-6">
+                                <div class="col-lg-3">
+                                    <p><?= $post->date_create ?></p>
+                                </div>
+                                <div class="social-wrap col-lg-3">
                                     <ul>
                                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -102,7 +105,7 @@
                         <!-- End nav Area -->
 
                         <!-- Start comment-sec Area -->
-                        <section class="comment-sec-area pt-80 pb-80">
+                        <!-- <section class="comment-sec-area pt-80 pb-80">
                             <div class="container">
                                 <div class="row flex-column">
                                     <h5 class="text-uppercase pb-80">05 Comments</h5>
@@ -204,11 +207,11 @@
                                     </div>                                                                                                                                                                
                                 </div>
                             </div>    
-                        </section>
+                        </section> -->
                         <!-- End comment-sec Area -->
 
                         <!-- Start commentform Area -->
-                        <section class="commentform-area pt-80">
+                        <!-- <section class="commentform-area pt-80">
                             <div class="container">
                                 <h5 class="pb-50">Deixe um Comentário</h5>
                                 <div class="row flex-row d-flex">
@@ -227,7 +230,7 @@
                                     <a class="primary-btn mt-20" href="#">Comentar</a>
                                 </div>
                             </div>
-                        </section>
+                        </section> -->
                         <!-- End commentform Area -->
 
                     </div>
@@ -241,7 +244,7 @@
                         </form>								
                     </div>
 
-                    <?php if ($_SESSION['id'] == $post->id_user) : ?>
+                    <?php if (isset($_SESSION['id']) && $_SESSION['id'] == $post->id_user) : ?>
                         <div class="text-center mb-25 h2">
                             <a href="/blog-single/blog-update/<?= $post->id ?>" class="genric-btn primary circle e-large">Editar Publicação</a>
                         </div>

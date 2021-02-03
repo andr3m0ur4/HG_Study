@@ -13,12 +13,12 @@
             'dbpass' => 'andre'
         ];
     } else {
-        define('BASE_URL', 'https://hg-study.com');
+        define('BASE_URL', 'http://hg-study.gq');
         $config = [
-            'dbname' => 'estrutura_mvc',
-            'host' => 'localhost',
-            'dbuser' => 'andre-moura',
-            'dbpass' => 'andre'
+            'dbname' => 'epiz_27810561_hg_study',
+            'host' => 'sql213.epizy.com',
+            'dbuser' => 'epiz_27810561',
+            'dbpass' => 'JRVjbF0OL1fc9u'
         ];
     }
 

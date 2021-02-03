@@ -77,9 +77,10 @@
                 $sql->bindValue(':password', $password);
                 $sql->bindValue(':city', $city);
                 $sql->bindValue(':state', $state);
-                $sql->execute();
 
-                return true;
+                if ($sql->execute()) {
+                    return true;
+                }
             }
             
             return false;
@@ -140,9 +141,12 @@
             $sql->bindValue(':github', $github);
             $sql->bindValue(':picture', $picture);
             $sql->bindValue(':id', $_SESSION['id']);
-            $sql->execute();
+            
+            if ($sql->execute()) {
+                return true;
+            }
 
-            return true;
+            return false;
         }
 
         public function updatePassword($password)
@@ -151,9 +155,12 @@
             $sql = $this->db->prepare($sql);
             $sql->bindValue(':password', $password);
             $sql->bindValue(':id', $_SESSION['id']);
-            $sql->execute();
+            
+            if ($sql->execute()) {
+                return true;
+            }
 
-            return true;
+            return false;
         }
 
         private function verifyEmail($email)

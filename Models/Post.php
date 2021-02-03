@@ -10,8 +10,11 @@
         {
             $array = [];
 
-            $sql = "SELECT p.*, u.name, u.last_name FROM posts AS p
+            $sql = "SELECT
+                    p.*, DATE_FORMAT(p.date_create, '%d/%m/%Y') AS date_create, u.name, u.last_name
+                FROM posts AS p
                 INNER JOIN users AS u ON p.id_user = u.id
+                ORDER BY p.date_create DESC
                 LIMIT $offset, $limit";
 
             $sql = $this->db->query($sql);
@@ -28,7 +31,8 @@
             $array = [];
 
             $sql = "SELECT
-                    p.*, u.name, u.last_name, u.description, u.picture AS user_picture
+                    p.*, DATE_FORMAT(p.date_create, '%d/%m/%Y') AS date_create,
+                    u.name, u.last_name, u.description, u.picture AS user_picture
                 FROM posts AS p
                 INNER JOIN users AS u ON p.id_user = u.id
                 WHERE p.id = :id";

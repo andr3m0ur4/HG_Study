@@ -42,7 +42,7 @@
                                 <?= nl2br(substr($post->content, 0, 500)) . '...' ?>
                             </p>
                             <div class="bottom-meta">
-                                <div class="user-details row align-items-center">
+                                <div class="user-details row">
                                     <div class="comment-wrap col-lg-6">
                                         <ul>
                                             <li>
@@ -53,7 +53,10 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="container col-lg-6">
+                                    <div class="col-lg-3">
+                                        <p><?= $post->date_create ?></p>
+                                    </div>
+                                    <div class="container col-lg-3">
                                         <p><?= "{$post->name} {$post->last_name}" ?></p>
                                     </div>
                                 </div>

@@ -47,7 +47,7 @@
                 </div> -->
 
                 <div class="thumb mt-10">
-                    <label class="h3 mb-10" for="imgPicture">Escolher Foto para a publicação:</label>
+                    <label class="h3 mb-10" for="img-picture">Escolher Foto para a publicação:</label>
                     <input type="hidden" name="picture" value="<?= $post->picture ?>">
                     <input type="file" id="img-picture" name="new_picture" class="single-input-primary btn-block mb-3">
                     <figure class="container ml-0 w-25">
