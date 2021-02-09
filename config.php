@@ -8,7 +8,7 @@
         define('BASE_URL', 'http://hg-study.com');
         $config = [
             'dbname' => 'hg-study',
-            'host' => '10.0.0.103',
+            'host' => '10.0.0.104',
             'dbuser' => 'andre-moura',
             'dbpass' => 'andre'
         ];
@@ -23,5 +23,3 @@
     }
 
     global $config;
-
-    

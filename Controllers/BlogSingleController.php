@@ -4,9 +4,9 @@
 
     use Core\Controller;
     use Models\Post;
-use stdClass;
+    use Models\Comment;
 
-class BlogSingleController extends Controller
+    class BlogSingleController extends Controller
     {
         public function index($id = null)
         {
@@ -16,9 +16,11 @@ class BlogSingleController extends Controller
             }
 
             $post = new Post();
+            $comment = new Comment();
 
             $data = [
-                'post' => $post->get($id)
+                'post' => $post->get($id),
+                'comments' => $comment->get($id)
             ];
 
             $this->loadTemplate('blog-single', $data);
@@ -34,7 +36,7 @@ class BlogSingleController extends Controller
             $error_picture = false;
             $success = false;
 
-            $post = new stdClass();
+            $post = new \stdClass();
             $post->title = '';
             $post->content = '';
             $post->quote = '';

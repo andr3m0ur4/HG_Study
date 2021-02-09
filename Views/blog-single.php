@@ -105,11 +105,69 @@
                         <!-- End nav Area -->
 
                         <!-- Start comment-sec Area -->
-                        <!-- <section class="comment-sec-area pt-80 pb-80">
+                        <section class="comment-sec-area pt-80 pb-80">
                             <div class="container">
                                 <div class="row flex-column">
                                     <h5 class="text-uppercase pb-80">05 Comments</h5>
                                     <br>
+                                    <?php foreach ($comments as $comment) : ?>
+                                        <div class="comment-list">
+                                            <div class="single-comment justify-content-between d-flex">
+                                                <div class="user justify-content-between d-flex">
+                                                    <div class="thumb">
+                                                        <?php if ($comment->picture) : ?>
+                                                            <img src="/img/user/<?= $comment->picture ?>" alt="Foto de Perfil" class="img-fluid">
+                                                        <?php else : ?>
+                                                            <img src="/img/post.png" alt="Foto de Perfil" class="img-fluid">
+                                                        <?php endif ?>
+                                                    </div>
+                                                    <div class="desc">
+                                                        <h5>
+                                                            <a href="/single/<?= $comment->id_user ?>">
+                                                                <?= "{$comment->name} {$comment->last_name}"?>
+                                                            </a>
+                                                        </h5>
+                                                        <p class="date"><?= $comment->date_create ?> </p>
+                                                        <p class="comment">
+                                                            <?= $comment->message ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="reply-btn">
+                                                    <a href="#" class="btn-reply text-uppercase">Responder</a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php foreach ($comment->comments as $comment) : ?>
+                                            <div class="comment-list left-padding">
+                                                <div class="single-comment justify-content-between d-flex">
+                                                    <div class="user justify-content-between d-flex">
+                                                        <div class="thumb">
+                                                            <?php if ($comment->picture) : ?>
+                                                                <img src="/img/user/<?= $comment->picture ?>" alt="Foto de Perfil" class="img-fluid">
+                                                            <?php else : ?>
+                                                                <img src="/img/post.png" alt="Foto de Perfil" class="img-fluid">
+                                                            <?php endif ?>
+                                                        </div>
+                                                        <div class="desc">
+                                                            <h5>
+                                                                <a href="/single/<?= $comment->id_user ?>">
+                                                                    <?= "{$comment->name} {$comment->last_name}"?>
+                                                                </a>
+                                                            </h5>
+                                                            <p class="date"><?= $comment->date_create ?> </p>
+                                                            <p class="comment">
+                                                                <?= $comment->message ?>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="reply-btn">
+                                                        <a href="#" class="btn-reply text-uppercase">Responder</a> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php endforeach ?>
+                                    <?php endforeach ?>
                                     <div class="comment-list">
                                         <div class="single-comment justify-content-between d-flex">
                                             <div class="user justify-content-between d-flex">
@@ -204,10 +262,10 @@
                                                 <a href="#" class="btn-reply text-uppercase">Responder</a> 
                                             </div>
                                         </div>
-                                    </div>                                                                                                                                                                
+                                    </div>
                                 </div>
                             </div>    
-                        </section> -->
+                        </section>
                         <!-- End comment-sec Area -->
 
                         <!-- Start commentform Area -->
