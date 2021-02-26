@@ -168,127 +168,25 @@
                                             </div>
                                         <?php endforeach ?>
                                     <?php endforeach ?>
-                                    <div class="comment-list">
-                                        <div class="single-comment justify-content-between d-flex">
-                                            <div class="user justify-content-between d-flex">
-                                                <div class="thumb">
-                                                    <img src="/img/blog/c1.jpg" alt="">
-                                                </div>
-                                                <div class="desc">
-                                                    <h5><a href="#">Emilly Blunt</a></h5>
-                                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                                    <p class="comment">
-                                                        Never say goodbye till the end comes!
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="reply-btn">
-                                                <a href="#" class="btn-reply text-uppercase">Responder</a> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="comment-list left-padding">
-                                        <div class="single-comment justify-content-between d-flex">
-                                            <div class="user justify-content-between d-flex">
-                                                <div class="thumb">
-                                                    <img src="/img/blog/c2.jpg" alt="">
-                                                </div>
-                                                <div class="desc">
-                                                    <h5><a href="#">Carolina Macaci</a></h5>
-                                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                                    <p class="comment">
-                                                        Never say goodbye till the end comes!
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="reply-btn">
-                                                <a href="#" class="btn-reply text-uppercase">Responder</a> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="comment-list left-padding">
-                                        <div class="single-comment justify-content-between d-flex">
-                                            <div class="user justify-content-between d-flex">
-                                                <div class="thumb">
-                                                    <img src="/img/blog/c3.jpg" alt="">
-                                                </div>
-                                                <div class="desc">
-                                                    <h5><a href="#">Carmen Sandiego</a></h5>
-                                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                                    <p class="comment">
-                                                        Never say goodbye till the end comes!
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="reply-btn">
-                                                <a href="#" class="btn-reply text-uppercase">Responder</a> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="comment-list">
-                                        <div class="single-comment justify-content-between d-flex">
-                                            <div class="user justify-content-between d-flex">
-                                                <div class="thumb">
-                                                    <img src="/img/blog/c4.jpg" alt="">
-                                                </div>
-                                                <div class="desc">
-                                                    <h5><a href="#">Eliza Clark</a></h5>
-                                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                                    <p class="comment">
-                                                        Never say goodbye till the end comes!
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="reply-btn">
-                                                <a href="#" class="btn-reply text-uppercase">Responder</a> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="comment-list">
-                                        <div class="single-comment justify-content-between d-flex">
-                                            <div class="user justify-content-between d-flex">
-                                                <div class="thumb">
-                                                    <img src="/img/blog/c5.jpg" alt="">
-                                                </div>
-                                                <div class="desc">
-                                                    <h5><a href="#">Samara Ditch</a></h5>
-                                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                                    <p class="comment">
-                                                        Never say goodbye till the end comes!
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="reply-btn">
-                                                <a href="#" class="btn-reply text-uppercase">Responder</a> 
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>    
                         </section>
                         <!-- End comment-sec Area -->
 
                         <!-- Start commentform Area -->
-                        <!-- <section class="commentform-area pt-80">
+                        <section class="commentform-area pt-80">
                             <div class="container">
                                 <h5 class="pb-50">Deixe um Comentário</h5>
                                 <div class="row flex-row d-flex">
-                                    <div class="col-lg-4 col-md-6">
-
-                                        <input name="name" placeholder="Insira seu nome" onFocus="this.placeholder = ''" onBlur="this.placeholder = 'Insira seu nome'" class="common-input mb-20 form-control" required type="text">
-                                        <input name="email" placeholder="Insira seu email" onFocus="this.placeholder = ''" onBlur="this.placeholder = 'Insira seu email'" class="common-input mb-20 form-control" required type="email">
-                                        <input name="Subject" placeholder="Assunto" onFocus="this.placeholder = ''" onBlur="this.placeholder = 'Assunto'" class="common-input mb-20 form-control" required type="text">
-
-                                    </div>
-                                    <div class="col-lg-8 col-md-6">
-                                        <textarea class="form-control mb-10" name="message" placeholder="Mensagem" onFocus="this.placeholder = ''" onBlur="this.placeholder = 'Mensagem'" required></textarea>
+                                    <div class="col-lg-12 col-md-6">
+                                        <textarea id="teste" class="form-control mb-10" rows="5" name="message" placeholder="Mensagem" data-post="<?= $post->id ?>"></textarea>
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <a class="primary-btn mt-20" href="#">Comentar</a>
+                                    <button class="primary-btn mt-20" id="comment">Comentar</button>
                                 </div>
                             </div>
-                        </section> -->
+                        </section>
                         <!-- End commentform Area -->
 
                     </div>
@@ -430,3 +328,25 @@
     <!-- End blog-posts Area -->
 </main>
 <!-- End content main -->
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-title"></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="font-weight-bold modal-text"></p>
+                <a class="modal-link" href="#"></a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn-confirm" class="genric-btn primary radius d-none"></button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>

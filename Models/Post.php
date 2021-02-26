@@ -84,9 +84,8 @@
             $sql->bindValue(':content2', $content2);
             $sql->bindValue(':picture', $picture);
             $sql->bindValue(':id_user', $_SESSION['id']);
-            $sql->execute();
-
-            return true;
+            
+            return $sql->execute();
         }
 
         public function update($id, $title, $content, $quote = '', $content2 = '', $picture)
@@ -106,9 +105,8 @@
             $sql->bindValue(':content2', $content2);
             $sql->bindValue(':picture', $picture);
             $sql->bindValue(':id', $id);
-            $sql->execute();
 
-            return true;
+            return $sql->execute();
         }
     }
     

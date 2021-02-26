@@ -71,6 +71,12 @@ const createForm = () => {
     return form
 }
 
+const createDiv = divClass => {
+    const div = $('<div>')
+    div.addClass(divClass)
+    return div
+}
+
 const changePassword = e => {
     e.preventDefault()
 
@@ -141,6 +147,72 @@ const passwordDifferent = () => {
     )
 }
 
+const noLogin = () => {
+    createModal(
+        'Usuário não logado!',
+        'text-warning',
+        'Você não está logado. Por favor faça login.'
+    )
+
+    $('#modal').on('hidden.bs.modal', () => {
+        window.location.href = '/login'
+    })
+}
+
+const createComment = (comment) => {
+    let div = createDiv('comment-list')
+    let div2 = createDiv('single-comment justify-content-between d-flex')
+    let div3 = createDiv('user justify-content-between d-flex')
+    let div4 = createDiv('thumb')
+    let img = $('<img>')
+
+    if (comment.picture) {
+        img.attr({
+            src: `/img/user/${comment.picture}`,
+            alt: 'Foto de Perfil'
+        })
+    } else {
+        img.attr({
+            src: '/img/post.png',
+            alt: 'Foto de Perfil'
+        })
+    }
+    img.addClass('img-fluid')
+    
+    let div5 = createDiv('desc')
+    let h5 = $('<h5>')
+    let a = $('<a>')
+    a.attr('href', `/single/${comment.id_user}`)
+    a.text(`${comment.name} ${comment.last_name}`)
+    
+    let p = $('<p>')
+    p.addClass('date')
+    p.text(comment.date_create)
+    let p2 = $('<p>')
+    p2.addClass('comment')
+    p2.text(comment.message)
+    
+    let div6 = createDiv('reply-btn')
+    let a2 = $('<a>')
+    a2.attr('href', '#')
+    a2.addClass('btn-reply text-uppercase')
+    a2.text('Responder')
+
+    div.append(div2)
+    div2.append(div3)
+    div2.append(div6)
+    div3.append(div4)
+    div3.append(div5)
+    div5.append(h5)
+    div5.append(p)
+    div5.append(p2)
+    div4.append(img)
+    div6.append(a2)
+    h5.append(a)
+    
+    return div
+}
+
 $(() => {
     if (location.pathname == '/register') {
         register()
@@ -152,6 +224,10 @@ $(() => {
 
     if (location.pathname == '/single/update') {
         update()
+    }
+
+    if (location.pathname.slice(0, 12) == '/blog-single') {
+        blogSingle()
     }
 
     if (location.pathname == '/blog-single/blog-add') {
@@ -278,4 +354,46 @@ const blogUpdate = () => {
     }
 
     $('#img-picture').change(readImage)
+}
+
+const blogSingle = () => {
+    $('#comment').click(e => {
+        let message = $(e.target).parent().prev().find('textarea').val()
+        let post_id = $(e.target).parent().prev().find('textarea').data('post')
+        let user_id = $(e.target).parent().prev().find('textarea').data('user')
+        $(e.target).parent().prev().find('textarea').val('')
+
+        if (message) {
+            $.ajax({
+                url: '/blog-single/comment-add',
+                type: 'POST',
+                data: {
+                    message,
+                    post_id,
+                    user_id
+                },
+                dataType: 'json',
+                success(data) {
+                    if (data.login) {
+                        noLogin()
+                    } else if (data.success) {
+                        $.ajax({
+                            url: '/blog-single/get-comment',
+                            type: 'GET',
+                            dataType: 'json',
+                            success(data) {
+                                const comment = createComment(data)
+                                $('.comment-sec-area .flex-column').append(comment)
+
+                                const divScroll = comment.offset().top - 200
+                                $('html, body').animate({
+                                    scrollTop: divScroll
+                                }, 500)
+                            }
+                        })
+                    }
+                }
+            })
+        }
+    })
 }

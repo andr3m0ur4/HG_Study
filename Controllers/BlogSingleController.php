@@ -150,4 +150,31 @@
                 return $name;
             }
         }
+
+        public function commentAdd() {
+            $response = [];
+
+            if (!isset($_SESSION['id'])) {
+                $response['login'] = true;
+                echo json_encode($response);
+                exit;
+            }
+
+            if (isset($_POST['message']) && !empty($_POST['message'])) {
+                $message = addslashes($_POST['message']);
+                $post_id = addslashes($_POST['post_id']);
+
+                $comment = new Comment();
+
+                $response['success'] = $comment->insert($message, $post_id);
+            }
+            
+            echo json_encode($response);
+        }
+
+        public function getComment()
+        {
+            $comment = new Comment();
+            echo json_encode($comment->getLastComment());
+        }
     }

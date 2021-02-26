@@ -8,6 +8,8 @@
         //'/galeria/{id}/{titulo}' => '/galeria/abrir/:id/:titulo',
         '/blog-single/blog-add' => '/blog-single/blog-add',
         '/blog-single/blog-update' => '/blog-single/blog-update',
+        '/blog-single/comment-add' => '/blog-single/comment-add',
+        '/blog-single/get-comment' => '/blog-single/get-comment',
         '/blog-single/{id}' => '/blog-single/index/:id',
         '/home' => '/home/index',
         //'/{titulo}' => '/noticia/abrirTitulo/:titulo'
