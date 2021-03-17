@@ -81,30 +81,9 @@
 <?php endif ?>
 
 <?php if (!is_null($success)) : ?>
-    <?php if ($success) : ?>
+    <?php if ($sussess) : ?>
         <span id="success">true</span>
     <?php else : ?>
         <span id="success">false</span>
     <?php endif ?>
 <?php endif ?>
-
-<!-- Modal -->
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="modal-title"></h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p class="font-weight-bold modal-text"></p>
-                <a class="modal-link" href="#"></a>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>

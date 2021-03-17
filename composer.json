@@ -8,5 +8,11 @@
             "Models\\": "Models/",
             "Core\\": "Core/"
         }
+    },
+    "scripts": {
+        "start": "php -S localhost:8080 -t public"
+    },
+    "config": {
+        "process-timeout": 0
     }
 }

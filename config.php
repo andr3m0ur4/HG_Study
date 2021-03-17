@@ -12,6 +12,14 @@
             'dbuser' => 'andre-moura',
             'dbpass' => 'andre'
         ];
+    } else if (ENVIRONMENT == 'development2') {
+        define('BASE_URL', 'http://localhost:8080');
+        $config = [
+            'dbname' => 'hg-study',
+            'host' => 'localhost',
+            'dbuser' => 'root',
+            'dbpass' => ''
+        ];
     } else {
         define('BASE_URL', 'http://hg-study.gq');
         $config = [

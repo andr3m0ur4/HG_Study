@@ -1,4 +1,4 @@
-const readImage = (e) => {
+function readImage(e) {
     if (e.target.files && e.target.files[0]) {
         let file = new FileReader()
 
@@ -10,207 +10,276 @@ const readImage = (e) => {
     }
 }
 
-const createModal = (title, title_class, text, link_href = '', link_text = '') => {
-    $('.modal-title').html(title)
-    $('.modal-title').addClass(title_class)
-    $('.modal-body').html('')
-
-    if ($('.modal-text').length > 0) {
-        $('.modal-text').html(text)
-    } else {
-        const modal_text = $('<div>')
-        modal_text.addClass('modal-text')
-        modal_text.html(text)
-        $('.modal-body').append(modal_text)
-    }
-
-    if ($('.modal-link').length > 0) {
-        $('.modal-link').attr('href', link_href)
-        $('.modal-link').html(link_text)
-    } else {
-        const modal_link = $('<div>')
-        modal_link.addClass('modal-link')
-        modal_link.attr('href', link_href)
-        modal_link.html(link_text)
-        $('.modal-body').append(modal_link)
-    }
-
-    $('#btn-confirm').addClass('d-none')
-    $('#modal').modal('show')
+function createElement(tagName, className = '') {
+    const element = $(`<${tagName}>`)
+    element.addClass(className)
+    return element
 }
 
-const createField = (name, placeholder) => {
-    const input = $('<input>')
-    input.attr({
-        type: 'password',
-        name,
-        placeholder,
-        required: ''
-    })
-    input.addClass('single-input-primary')
+class Modal {
+    constructor() {
+        this.modal = createElement('div', 'modal fade')
+        $(this.modal).attr({
+            id: 'modal',
+            tabindex: -1,
+            role: 'dialog',
+            'aria-hidden': true
+        })
 
-    const div = $('<div>')
-    div.addClass('mt-10')
-    div.append(input)
+        this.dialog = createElement('div', 'modal-dialog')
+        $(this.dialog).attr('role', 'document')
 
-    return div
-}
+        this.content = createElement('div', 'modal-content')
+        this.header = createElement('div', 'modal-header')
+        this.h4 = createElement('h4', 'modal-title')
+        $(this.h4).attr('id', 'modal-title')
 
-const createForm = () => {
-    const form = $('<form>')
+        this.buttonX = createElement('button', 'close')
+        $(this.buttonX).attr({
+            'data-dismiss': 'modal',
+            'aria-label': 'Fechar'
+        })
+        this.span = createElement('span')
+        $(this.span).attr('aria-hidden', true)
+        $(this.span).html('&times;')
 
-    let field = createField('password', 'Senha')
-    form.append(field)
+        this.body = createElement('div', 'modal-body')
+        this.p = createElement('p', 'font-weight-bold modal-text')
+        this.a = createElement('a', 'modal-link')
+        $(this.a).attr('href', '#')
 
-    field = createField('new_password', 'Nova Senha')
-    form.append(field)
+        this.footer = createElement('div', 'modal-footer')
 
-    field = createField('new_password2', 'Confirme a Senha')
-    form.append(field)
+        this.buttonClose = createElement('button', 'btn btn-secondary')
+        $(this.buttonClose).attr({
+            type: 'button',
+            'data-dismiss': 'modal'
+        })
+        $(this.buttonClose).html('Fechar')
+    }
     
-    return form
+    createModal() {
+        $(this.modal).html('')
+        $(this.modal).append(this.dialog)
+        $(this.dialog).append(this.content)
+        $(this.content).append(this.header, this.body, this.footer)
+        $(this.header).append(this.h4, this.buttonX)
+        $(this.buttonX).append(this.span)
+        $(this.body).append(this.p, this.a)
+        $(this.footer).append(this.buttonClose)
+    }
+
+    fillModal(data) {
+        this.createModal()
+
+        $(this.h4).html(data.title)
+        $(this.h4).removeClass()
+        $(this.h4).addClass(data.title_class)
+        $(this.p).html(data.text)
+
+        if (data.link_text === '' || data.link_href === '') {
+            $(this.a).remove()
+        } else {
+            $(this.a).html(data.link_text)
+            $(this.a).attr('href', data.link_href)
+        }
+    }
+
+    showModal() {
+        $(this.modal).modal('show')
+    }
 }
 
-const createDiv = divClass => {
-    const div = $('<div>')
-    div.addClass(divClass)
-    return div
+class Form {
+    constructor(modal) {
+        this.form = createElement('form')
+        $(this.form).attr('id', 'formPassword')
+        $(this.form).submit(modal, savePassword)
+        $(this.form).append(new Field('password', 'Senha').div)
+        $(this.form).append(new Field('new_password', 'Nova Senha').div)
+        $(this.form).append(new Field('new_password2', 'Confirme a Senha').div)
+
+        this.button = createElement('button', 'genric-btn primary radius')
+        $(this.button).attr({
+            type: 'submit',
+            form: 'formPassword'
+        })
+        $(this.button).html('Salvar Senha')
+    }
 }
 
-const changePassword = e => {
+class Field {
+    constructor(name, placeholder) {
+        this.div = createElement('div', 'mt-10')
+
+        this.input = createElement('input', 'single-input-primary')
+        $(this.input).attr({
+            type: 'password',
+            name,
+            placeholder,
+            required: ''
+        })
+
+        $(this.div).append(this.input)
+    }
+}
+
+class Comment {
+    constructor(comment) {
+        this.comment = createElement('div', 'comment-list')
+        this.single = createElement('div', 'single-comment justify-content-between d-flex')
+        this.user = createElement('div', 'user justify-content-between d-flex')
+        this.thumb = createElement('div', 'thumb')
+        this.img = createElement('img', 'img-fluid')
+
+        if (comment.picture) {
+            $(this.img).attr({
+                src: `/img/user/${comment.picture}`,
+                alt: 'Foto de Perfil'
+            })
+        } else {
+            $(this.img).attr({
+                src: '/img/post.png',
+                alt: 'Foto de Perfil'
+            })
+        }
+
+        this.desc = createElement('div', 'desc')
+        this.h5 = createElement('h5')
+        this.a = createElement('a')
+        $(this.a).attr('href', `/single/${comment.id_user}`)
+        $(this.a).text(`${comment.name} ${comment.last_name}`)
+        this.date = createElement('p', 'date')
+        $(this.date).text(comment.date_create)
+        this.message = createElement('p', 'comment')
+        $(this.message).text(comment.message)
+        this.button = createElement('div', 'reply-btn')
+        this.reply = createElement('a', 'btn-reply text-uppercase')
+        $(this.reply).attr('href', '#')
+        $(this.reply).text('Responder')
+
+        $(this.comment).append(this.single)
+        $(this.single).append(this.user, this.button)
+        $(this.user).append(this.thumb, this.desc)
+        $(this.desc).append(this.h5, this.date, this.message)
+        $(this.thumb).append(this.img)
+        $(this.button).append(this.reply)
+        $(this.h5).append(this.a)
+    }
+}
+
+function changePassword(e) {
     e.preventDefault()
 
-    const form = createForm()
-    $('.modal-title').html('Alterar Senha')
-    $('.modal-title').addClass('text-info')
-    $('.modal-title').removeClass('text-warning')
-    $('.modal-body').html(form)
+    const modal = e.data
+    const form = new Form(modal)
 
-    $('#btn-confirm').removeClass('d-none')
-    $('#btn-confirm').html('Salvar Senha')
-    $('#btn-confirm').on('click', savePassword)
-    $('#modal').modal('show')
+    modal.fillModal({
+        title: 'Alterar Senha',
+        title_class: 'text-info',
+        text: '',
+        link_text: '',
+        link_href: ''
+    })
+    $(modal.body).html(form.form)
+    $(modal.footer).prepend(form.button)
+    modal.showModal()
 }
 
-const savePassword = () => {
-    const form = $('.modal-body').find('form')
-    let password = form.find('input[name=password]').val()
-    let new_password = form.find('input[name=new_password]').val()
-    let new_password2 = form.find('input[name=new_password2]').val()
-
+function savePassword(e) {
+    e.preventDefault()
+    
+    const form = e.target
+    const data = new FormData(form)
+    const modal = e.data
+    
     $.ajax({
         url: '/single/update-password',
         type: 'POST',
-        data: {
-            password,
-            new_password,
-            new_password2
-        },
+        data,
+        processData: false,
+        contentType: false,
         success: data => {
             $('#modal').modal('hide')
-            $('#btn-confirm').off('click')
+            $(modal.body).html('')
+            $(modal.footer).html('')
 
             setTimeout(() => {
                 if (data == 1) {
-                    passwordSuccess()
+                    passwordSuccess(modal)
                 } else if (data == 2) {
-                    passwordDifferent()
+                    passwordDifferent(modal)
                 } else {
-                    passwordError()
+                    passwordError(modal)
                 }
             }, 500)
         }
     })
 }
 
-const passwordSuccess = () => {
-    createModal(
-        'Sucesso!',
-        'text-success',
-        'Senha alterada com sucesso.'
-    )
+function passwordSuccess(modal) {
+    modal.fillModal({
+        title: 'Sucesso!',
+        title_class: 'text-success',
+        text: 'Senha alterada com sucesso.',
+        link_text: '',
+        link_href: ''
+    })
+    modal.showModal()
 }
 
-const passwordError = () => {
-    createModal(
-        'Erro!',
-        'text-warning',
-        'A senha está errada, tente novamente.'
-    )
+function passwordError(modal) {
+    modal.fillModal({
+        title: 'Erro!',
+        title_class: 'text-warning',
+        text: 'A senha está errada, tente novamente.',
+        link_text: '',
+        link_href: ''
+    })
+    modal.showModal()
 }
 
-const passwordDifferent = () => {
-    createModal(
-        'Erro!',
-        'text-warning',
-        'As senhas não são iguais, tente novamente.'
-    )
+function passwordDifferent(modal) {
+    modal.fillModal({
+        title: 'Erro!',
+        title_class: 'text-warning',
+        text: 'As senhas não são iguais, tente novamente.',
+        link_text: '',
+        link_href: ''
+    })
+    modal.showModal()
 }
 
-const noLogin = () => {
-    createModal(
-        'Usuário não logado!',
-        'text-warning',
-        'Você não está logado. Por favor faça login.'
-    )
+function notLogged(modal) {
+    modal.fillModal({
+        title: 'Usuário não logado!',
+        title_class: 'text-warning',
+        text: 'Você não está logado. Por favor faça login.',
+        link_text: '',
+        link_href: ''
+    })
+    modal.showModal()
 
-    $('#modal').on('hidden.bs.modal', () => {
+    $(modal.modal).on('hidden.bs.modal', () => {
         window.location.href = '/login'
     })
 }
 
-const createComment = (comment) => {
-    let div = createDiv('comment-list')
-    let div2 = createDiv('single-comment justify-content-between d-flex')
-    let div3 = createDiv('user justify-content-between d-flex')
-    let div4 = createDiv('thumb')
-    let img = $('<img>')
+function getComment() {
+    $.ajax({
+        url: '/blog-single/get-comment',
+        type: 'GET',
+        dataType: 'json',
+        success(data) {
+            const comment = new Comment(data)
+            $('.comment-sec-area .flex-column').append(comment.comment)
 
-    if (comment.picture) {
-        img.attr({
-            src: `/img/user/${comment.picture}`,
-            alt: 'Foto de Perfil'
-        })
-    } else {
-        img.attr({
-            src: '/img/post.png',
-            alt: 'Foto de Perfil'
-        })
-    }
-    img.addClass('img-fluid')
-    
-    let div5 = createDiv('desc')
-    let h5 = $('<h5>')
-    let a = $('<a>')
-    a.attr('href', `/single/${comment.id_user}`)
-    a.text(`${comment.name} ${comment.last_name}`)
-    
-    let p = $('<p>')
-    p.addClass('date')
-    p.text(comment.date_create)
-    let p2 = $('<p>')
-    p2.addClass('comment')
-    p2.text(comment.message)
-    
-    let div6 = createDiv('reply-btn')
-    let a2 = $('<a>')
-    a2.attr('href', '#')
-    a2.addClass('btn-reply text-uppercase')
-    a2.text('Responder')
-
-    div.append(div2)
-    div2.append(div3)
-    div2.append(div6)
-    div3.append(div4)
-    div3.append(div5)
-    div5.append(h5)
-    div5.append(p)
-    div5.append(p2)
-    div4.append(img)
-    div6.append(a2)
-    h5.append(a)
-    
-    return div
+            const divScroll = $(comment.comment).offset().top - 200
+            $('html, body').animate({
+                scrollTop: divScroll
+            }, 500)
+        }
+    })
 }
 
 $(() => {
@@ -239,92 +308,127 @@ $(() => {
     }
 })
 
-const register = () => {
+function register() {
+    const modal = new Modal()
+    $('body').append(modal.modal)
+
     if ($('#success').length > 0) {
         if ($('#success').html() == 'true') {
-            createModal(
-                'Parabéns!',
-                'text-success',
-                'Usuário foi cadastrado com sucesso.',
-                '/login',
-                'Faça o login agora'
-            )
+            modal.fillModal({
+                title: 'Parabéns!',
+                title_class: 'text-success',
+                text: 'Usuário foi cadastrado com sucesso.',
+                link_text: 'Faça o login agora',
+                link_href: '/login'
+            })
+            modal.showModal()
         } else {
-            createModal(
-                'Atenção!',
-                'text-warning',
-                'Este e-mail já existe.',
-                '/login',
-                'Faça o login agora'
-            )
+            modal.fillModal({
+                title: 'Atenção!',
+                title_class: 'text-warning',
+                text: 'Este e-mail já existe.',
+                link_text: 'Faça o login agora',
+                link_href: '/login'
+            })
+            modal.showModal()
         }
     }
 
     if ($('#error').length > 0) {
-        createModal(
-            'Atenção!',
-            'text-warning',
-            'Preencha todos os campos.'
-        )
+        modal.fillModal({
+            title: 'Atenção!',
+            title_class: 'text-warning',
+            text: 'Preencha todos os campos.',
+            link_text: '',
+            link_href: ''
+        })
+        modal.showModal()
     }
 }
 
-const login = () => {
+function login() {
+    const modal = new Modal()
+    $('body').append(modal.modal)
+    
     if ($('#error').length > 0) {
-        createModal(
-            'Atenção!',
-            'text-danger',
-            'Usuário e/ou senha não existe.'
-        )
+        modal.fillModal({
+            title: 'Atenção!',
+            title_class: 'text-danger',
+            text: 'Usuário e/ou senha não existe.',
+            link_text: '',
+            link_href: ''
+        })
+        modal.showModal()
     }
 }
 
-const update = () => {
+function update() {
+    const modal = new Modal()
+    $('body').append(modal.modal)
+
     if ($('#success').length > 0) {
-        createModal(
-            'Sucesso!',
-            'text-success',
-            'Dados do usuário atualizados com sucesso.'
-        )
+        modal.fillModal({
+            title: 'Sucesso!',
+            title_class: 'text-success',
+            text: 'Dados do usuário atualizados com sucesso.',
+            link_text: '',
+            link_href: ''
+        })
+        modal.showModal()
     }
 
     if ($('#error').length > 0) {
-        createModal(
-            'Atenção!',
-            'text-warning',
-            'E-mail já existe. Por favor, tente outro.'
-        )
+        modal.fillModal({
+            title: 'Atenção!',
+            title_class: 'text-warning',
+            text: 'E-mail já existe. Por favor, tente outro.',
+            link_text: '',
+            link_href: ''
+        })
+        modal.showModal()
     }
 
     if ($('#error_picture').length > 0) {
-        createModal(
-            'Atenção!',
-            'text-warning',
-            'Arquivo de imagem deve ser no formato PNG ou JPG.'
-        )
+        modal.fillModal({
+            title: 'Atenção!',
+            title_class: 'text-warning',
+            text: 'Arquivo de imagem deve ser no formato PNG ou JPG.',
+            link_text: '',
+            link_href: ''
+        })
+        modal.showModal()
     }
 
     $('#img-picture').change(readImage)
-    $('#change-password').click(changePassword)
+    $('#change-password').click(modal, changePassword)
 }
 
-const blogAdd = () => {
+function blogAdd() {
+    const modal = new Modal()
+    $('body').append(modal.modal)
+
     if ($('#error_picture').length > 0) {
-        createModal(
-            'Atenção!',
-            'text-warning',
-            'Arquivo de imagem deve ser no formato PNG ou JPG.'
-        )
+        modal.fillModal({
+            title: 'Atenção!',
+            title_class: 'text-warning',
+            text: 'Arquivo de imagem deve ser no formato PNG ou JPG.',
+            link_text: '',
+            link_href: ''
+        })
+        modal.showModal()
     }
 
     if ($('#success').length > 0) {
-        createModal(
-            'Sucesso!',
-            'text-success',
-            'A sua publicação foi publicada com sucesso.'
-        )
+        modal.fillModal({
+            title: 'Sucesso!',
+            title_class: 'text-success',
+            text: 'A sua publicação foi publicada com sucesso.',
+            link_text: '',
+            link_href: ''
+        })
+        modal.showModal()
 
-        $('#modal').on('hidden.bs.modal', () => {
+        $(modal.modal).on('hidden.bs.modal', () => {
             window.location.href = '/blog-home'
         })
     }
@@ -332,23 +436,32 @@ const blogAdd = () => {
     $('#img-picture').change(readImage)
 }
 
-const blogUpdate = () => {
+function blogUpdate() {
+    const modal = new Modal()
+    $('body').append(modal.modal)
+
     if ($('#error_picture').length > 0) {
-        createModal(
-            'Atenção!',
-            'text-warning',
-            'Arquivo de imagem deve ser no formato PNG ou JPG.'
-        )
+        modal.fillModal({
+            title: 'Atenção!',
+            title_class: 'text-warning',
+            text: 'Arquivo de imagem deve ser no formato PNG ou JPG.',
+            link_text: '',
+            link_href: ''
+        })
+        modal.showModal()
     }
 
     if ($('#success').length > 0) {
-        createModal(
-            'Sucesso!',
-            'text-success',
-            'A sua publicação foi atualizada com sucesso.'
-        )
+        modal.fillModal({
+            title: 'Sucesso!',
+            title_class: 'text-success',
+            text: 'A sua publicação foi atualizada com sucesso.',
+            link_text: '',
+            link_href: ''
+        })
+        modal.showModal()
 
-        $('#modal').on('hidden.bs.modal', () => {
+        $(modal.modal).on('hidden.bs.modal', () => {
             window.location.href = '/blog-single/' + parseInt(location.pathname.slice(25))
         })
     }
@@ -356,12 +469,15 @@ const blogUpdate = () => {
     $('#img-picture').change(readImage)
 }
 
-const blogSingle = () => {
+function blogSingle() {
+    const modal = new Modal()
+    $('body').append(modal.modal)
+
     $('#comment').click(e => {
-        let message = $(e.target).parent().prev().find('textarea').val()
-        let post_id = $(e.target).parent().prev().find('textarea').data('post')
-        let user_id = $(e.target).parent().prev().find('textarea').data('user')
-        $(e.target).parent().prev().find('textarea').val('')
+        const textarea = $(e.target).parent().prev().find('textarea')
+        const message = $(textarea).val()
+        const post_id = $(textarea).data('post')
+        $(textarea).val('')
 
         if (message) {
             $.ajax({
@@ -369,28 +485,14 @@ const blogSingle = () => {
                 type: 'POST',
                 data: {
                     message,
-                    post_id,
-                    user_id
+                    post_id
                 },
                 dataType: 'json',
                 success(data) {
                     if (data.login) {
-                        noLogin()
+                        notLogged(modal)
                     } else if (data.success) {
-                        $.ajax({
-                            url: '/blog-single/get-comment',
-                            type: 'GET',
-                            dataType: 'json',
-                            success(data) {
-                                const comment = createComment(data)
-                                $('.comment-sec-area .flex-column').append(comment)
-
-                                const divScroll = comment.offset().top - 200
-                                $('html, body').animate({
-                                    scrollTop: divScroll
-                                }, 500)
-                            }
-                        })
+                        getComment()
                     }
                 }
             })
