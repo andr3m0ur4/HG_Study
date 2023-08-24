@@ -7,12 +7,12 @@ services:
       args:
         user: '${WWWUSER}'
         uid: '${WWWGROUP}'
-      context: ./docker/php
+      context: ./api
       dockerfile: Dockerfile
     depends_on:
       - mysql
     volumes:
-      - ./:/var/www/html/
+      - ./api:/var/www/
     ports:
       - ${APP_PORT}:80
     networks:
