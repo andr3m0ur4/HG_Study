@@ -1,6 +1,21 @@
 version: "3.7"
 services:
 
+  proxy:
+    image: jwilder/nginx-proxy:0.8.0
+    container_name: newproxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginx-proxy.conf:/etc/nginx/conf.d/nginx-proxy.conf:ro
+    depends_on:
+      - php-apache
+      - frontend
+    networks:
+      - development
+
   php-apache:
     container_name: php-apache
     build:
