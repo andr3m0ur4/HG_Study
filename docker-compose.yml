@@ -52,6 +52,18 @@ services:
     networks:
       - development
 
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: 'dev'
+    volumes:
+      - ./frontend:/var/www/
+    ports:
+      - ${SPA_PORT}:5173
+    networks:
+      - development
 
 networks:
   development:
