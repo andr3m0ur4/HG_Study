@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="/css/font-awesome.min.css">
         <link rel="stylesheet" href="/css/bootstrap.css">
         <link rel="stylesheet" href="/css/magnific-popup.css">
-        <link rel="stylesheet" href="/css/nice-select.css">					
+        <link rel="stylesheet" href="/css/nice-select.css">
         <link rel="stylesheet" href="/css/animate.min.css">
         <link rel="stylesheet" href="/css/owl.carousel.css">
         <link rel="stylesheet" href="/css/main.css">
@@ -44,21 +44,21 @@
                     <nav id="nav-menu-container">
                         <ul class="nav-menu">
                             <li class="menu-active"><a href="/">Home</a></li>
-                            <li><a href="/about-us.html">Sobre nós</a></li>
+                            <li><a href="/about-us">Sobre nós</a></li>
                             <li><a href="/category.html">Orientadores</a></li>
                             <li><a href="/blog-home.html">Blog</a></li>
                             <li><a href="/contact.html">Contato</a></li>
                             <li><a class="ticker-btn" href="/cadastro.html">Cadastre-se</a></li>
                             <li><a class="ticker-btn" href="/login.html">Login</a></li>
                         </ul>
-                    </nav><!-- #nav-menu-container -->		    		
+                    </nav><!-- #nav-menu-container -->
                 </div>
             </div>
         </header><!-- #header -->
 
 
         <!-- start banner Area -->
-        <section class="banner-area relative" id="home">	
+        <section class="banner-area relative" id="home">
             <div class="overlay overlay-bg"></div>
             <div class="container">
                 <div class="row fullscreen d-flex align-items-center justify-content-center">
@@ -94,7 +94,7 @@
                                             <option value="6">Inteligência Artificial</option>
                                             <option value="7">Big Data</option>
                                         </select>
-                                    </div>										
+                                    </div>
                                 </div>
                                 <div class="col-lg-2 form-cols">
                                     <button type="button" class="btn btn-info">
@@ -104,7 +104,7 @@
                             </div>
                         </form>
 
-                    </div>											
+                    </div>
                 </div>
             </div>
         </section>
@@ -131,7 +131,7 @@
                             <p>
                                 Big Data refere-se a um grande conjunto de dados gerados e armazenados, e que os aplicativos de processamento de dados tradicionais ainda não conseguem lidar em um tempo toleráve
                             </p>
-                        </div>	
+                        </div>
                         <div class="single-review">
                             <img src="/img/o2.png" alt="">
                             <div class="title d-flex flex-row">
@@ -140,7 +140,7 @@
                             <p>
                                 Redes de computadores são estruturas físicas (equipamentos) e lógicas (programas, protocolos) que permitem que dois ou mais computadores possam compartilhar suas informações entre si.
                             </p>
-                        </div>	
+                        </div>
                         <div class="single-review">
                             <img src="/img/o3.png" alt="">
                             <div class="title d-flex flex-row">
@@ -149,7 +149,7 @@
                             <p>
                                 A segurança da informação está diretamente relacionada com proteção de um conjunto de informações, no sentido de preservar o valor que possuem para um indivíduo ou uma organização.
                             </p>
-                        </div>	
+                        </div>
                         <div class="single-review">
                             <img src="/img/o4.png" alt="">
                             <div class="title d-flex flex-row">
@@ -158,7 +158,7 @@
                             <p>
                                 Bancos de dados são coleções organizadas de dados que se relacionam de forma a criar algum sentido e dar mais eficiência durante uma pesquisa ou estudo.
                             </p>
-                        </div>	
+                        </div>
                         <div class="single-review">
                             <img src="/img/o1.png" alt="">
                             <div class="title d-flex flex-row">
@@ -203,7 +203,7 @@
                                             <a href="#">PHP</a>
                                         </li>
                                         <li>
-                                            <a href="#">JAVASCRIPT</a>					
+                                            <a href="#">JAVASCRIPT</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -223,7 +223,7 @@
                                     </p>
                                     <h5>Trabalho Atual: Google</h5>
                                     <p class="address"><span class="lnr lnr-map"></span> São Paulo-SP</p>
-                                    
+
                                 </div>
                             </div>
                             <div class="single-post d-flex flex-row">
@@ -237,7 +237,7 @@
                                             <a href="#">Proxy</a>
                                         </li>
                                         <li>
-                                            <a href="#">Servidores</a>					
+                                            <a href="#">Servidores</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -245,7 +245,7 @@
                                     <div class="title d-flex flex-row justify-content-between">
                                         <div class="titles">
                                             <a href="/single.html"><h4>João Gomes Souza</h4></a>
-                                            <h6>Analista de redes</h6>					
+                                            <h6>Analista de redes</h6>
                                         </div>
 
                                     </div>
@@ -267,7 +267,7 @@
                                             <a href="#">Linux</a>
                                         </li>
                                         <li>
-                                            <a href="#">Criptografia</a>					
+                                            <a href="#">Criptografia</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -275,7 +275,7 @@
                                     <div class="title d-flex flex-row justify-content-between">
                                         <div class="titles">
                                             <a href="/single.html"><h4>Rodrigo Barbosa Correia</h4></a>
-                                            <h6>Analista de Segurança</h6>					
+                                            <h6>Analista de Segurança</h6>
                                         </div>
 
                                     </div>
@@ -284,9 +284,9 @@
                                     </p>
                                     <h5>Trabalho Atual: IBM</h5>
                                     <p class="address"><span class="lnr lnr-map"></span> Presidente Prudente-SP</p>
-                                    
+
                                 </div>
-                            </div>		
+                            </div>
                             <div class="single-post d-flex flex-row">
                                 <div class="thumb">
                                     <img src="/img/post.png" alt="">
@@ -298,7 +298,7 @@
                                             <a href="#">Jquery</a>
                                         </li>
                                         <li>
-                                            <a href="#">Design</a>					
+                                            <a href="#">Design</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -306,7 +306,7 @@
                                     <div class="title d-flex flex-row justify-content-between">
                                         <div class="titles">
                                             <a href="/single.html"><h4>Gustavo Goncalves Ribeiro</h4></a>
-                                            <h6>Programador Web</h6>					
+                                            <h6>Programador Web</h6>
                                         </div>
 
                                     </div>
@@ -315,7 +315,7 @@
                                     </p>
                                     <h5>Trabalho Atual: Oracle</h5>
                                     <p class="address"><span class="lnr lnr-map"></span> Várzea Paulista-SP</p>
-                                
+
                                 </div>
                             </div>
                             <div class="single-post d-flex flex-row">
@@ -329,7 +329,7 @@
                                             <a href="#">MySQL</a>
                                         </li>
                                         <li>
-                                            <a href="#">Modelagem</a>					
+                                            <a href="#">Modelagem</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -337,7 +337,7 @@
                                     <div class="title d-flex flex-row justify-content-between">
                                         <div class="titles">
                                             <a href="/single.html"><h4>Gabriel Martins Pereira</h4></a>
-                                            <h6>Administrador de Banco</h6>					
+                                            <h6>Administrador de Banco</h6>
                                         </div>
 
                                     </div>
@@ -346,7 +346,7 @@
                                     </p>
                                     <h5>Trabalho Atual: Sandisk</h5>
                                     <p class="address"><span class="lnr lnr-map"></span> São Paulo-SP</p>
-                                    
+
                                 </div>
                             </div>
                             <div class="single-post d-flex flex-row">
@@ -360,7 +360,7 @@
                                             <a href="#">GO</a>
                                         </li>
                                         <li>
-                                            <a href="#">IOS</a>					
+                                            <a href="#">IOS</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -368,7 +368,7 @@
                                     <div class="title d-flex flex-row justify-content-between">
                                         <div class="titles">
                                             <a href="/single.html"><h4>Thaís Rocha Goncalves</h4></a>
-                                            <h6>Desenvolvedor Mobile</h6>					
+                                            <h6>Desenvolvedor Mobile</h6>
                                         </div>
 
                                     </div>
@@ -378,7 +378,7 @@
                                     <h5>Trabalho Atual: Gameloft</h5>
                                     <p class="address"><span class="lnr lnr-map"></span> Porto Alegre-RS</p>
                                 </div>
-                            </div>															
+                            </div>
                             <div class="single-post d-flex flex-row">
                                 <div class="thumb">
                                     <img src="/img/post.png" alt="">
@@ -390,7 +390,7 @@
                                             <a href="#">Media</a>
                                         </li>
                                         <li>
-                                            <a href="#">Design</a>					
+                                            <a href="#">Design</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -398,7 +398,7 @@
                                     <div class="title d-flex flex-row justify-content-between">
                                         <div class="titles">
                                             <a href="/single.html"><h4>Creative Art Designer</h4></a>
-                                            <h6>Premium Labels Limited</h6>					
+                                            <h6>Premium Labels Limited</h6>
                                         </div>
 
                                     </div>
@@ -407,7 +407,7 @@
                                     </p>
                                     <h5>Job Nature: Full time</h5>
                                     <p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
-                                
+
                                 </div>
                             </div>
 
@@ -415,7 +415,7 @@
                                 Carregar mais Tutores
                             </a>
 
-                            <!--  
+                            <!--
                             AD
                             -->
 
@@ -514,12 +514,12 @@
                             <a class="primary-btn" href="/cadastro.html">Cadastrar</a>
                         </div>
                     </div>
-                </div>	
-            </div>	
+                </div>
+            </div>
         </section>
         <!-- End calto-action Area -->
 
-        <!-- start footer Area -->		
+        <!-- start footer Area -->
         <footer class="footer-area section-gap">
             <div class="container">
                 <div class="row">
@@ -541,17 +541,17 @@
                                             <div style="position: absolute; left: -5000px;">
                                                 <input name="button" tabindex="-1" value="" type="text">
                                             </div>
-                                        </div> 
-                                    
+                                        </div>
+
                                         <div class="col-lg-4 col-md-12">
                                             <button class="nw-btn primary-btn">
                                                 Enviar<span class="lnr lnr-arrow-right"></span>
                                             </button>
-                                        </div> 
-                                    </div>		
+                                        </div>
+                                    </div>
                                     <div class="info"></div>
                                 </form>
-                            </div>		
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-3  col-md-12">
