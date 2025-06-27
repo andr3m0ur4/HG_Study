@@ -17,3 +17,7 @@ Route::get('/category', function () {
 Route::get('/single', function () {
     return view('single');
 });
+
+Route::get('/blog-home', function () {
+    return view('blog-home');
+});
