@@ -45,7 +45,7 @@
                         <ul class="nav-menu">
                             <li class="menu-active"><a href="/">Home</a></li>
                             <li><a href="/about-us">Sobre nós</a></li>
-                            <li><a href="/category.html">Orientadores</a></li>
+                            <li><a href="/category">Orientadores</a></li>
                             <li><a href="/blog-home.html">Blog</a></li>
                             <li><a href="/contact.html">Contato</a></li>
                             <li><a class="ticker-btn" href="/cadastro.html">Cadastre-se</a></li>
