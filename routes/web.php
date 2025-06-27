@@ -13,3 +13,7 @@ Route::get('/about-us', function () {
 Route::get('/category', function () {
     return view('category');
 });
+
+Route::get('/single', function () {
+    return view('single');
+});

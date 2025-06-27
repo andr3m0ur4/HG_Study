@@ -102,7 +102,7 @@
                                 <div class="details col-lg-9">
                                     <div class="title d-flex flex-row justify-content-between">
                                         <div class="titles">
-                                            <a href="/single.html">
+                                            <a href="/single">
                                                 <h4>João Pereira Souza</h4></a>
                                             <div>
                                                 <h6>Analista de Banco de Dados</h6>
@@ -137,7 +137,7 @@
                                 <div class="details col-lg-9">
                                     <div class="title d-flex flex-row justify-content-between">
                                         <div class="titles">
-                                            <a href="/single.html"><h4>João Gomes Souza</h4></a>
+                                            <a href="/single"><h4>João Gomes Souza</h4></a>
                                             <h6>Analista de redes</h6>
                                         </div>
                                         <ul class="btns">
@@ -169,7 +169,7 @@
                                 <div class="details col-lg-9">
                                     <div class="title d-flex flex-row justify-content-between">
                                         <div class="titles">
-                                            <a href="/single.html"><h4>Rodrigo Barbosa Correia</h4></a>
+                                            <a href="/single"><h4>Rodrigo Barbosa Correia</h4></a>
                                             <h6>Analista de Segurança</h6>
                                         </div>
                                         <ul class="btns">
@@ -201,7 +201,7 @@
                                 <div class="details col-lg-9">
                                     <div class="title d-flex flex-row justify-content-between">
                                         <div class="titles">
-                                            <a href="/single.html"><h4>Gustavo Goncalves Ribeiro</h4></a>
+                                            <a href="/single"><h4>Gustavo Goncalves Ribeiro</h4></a>
                                             <h6>Programador Web</h6>
                                         </div>
                                         <ul class="btns">
@@ -233,7 +233,7 @@
                                 <div class="details col-lg-9">
                                     <div class="title d-flex flex-row justify-content-between">
                                         <div class="titles">
-                                            <a href="/single.html"><h4>Gabriel Martins Pereira</h4></a>
+                                            <a href="/single"><h4>Gabriel Martins Pereira</h4></a>
                                             <h6>Administrador de Banco</h6>
                                         </div>
                                         <ul class="btns">
@@ -265,7 +265,7 @@
                                 <div class="details col-lg-9">
                                     <div class="title d-flex flex-row justify-content-between">
                                         <div class="titles">
-                                            <a href="/single.html"><h4>Thaís Rocha Goncalves</h4></a>
+                                            <a href="/single"><h4>Thaís Rocha Goncalves</h4></a>
                                             <h6>Desenvolvedor Mobile</h6>
                                         </div>
                                         <ul class="btns">
@@ -297,7 +297,7 @@
                                 <div class="details col-lg-9">
                                     <div class="title d-flex flex-row justify-content-between">
                                         <div class="titles">
-                                            <a href="/single.html"><h4>Drauzio Varella</h4></a>
+                                            <a href="/single"><h4>Drauzio Varella</h4></a>
                                             <h6>Analista de Big Data</h6>
                                         </div>
                                         <ul class="btns">
