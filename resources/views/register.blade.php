@@ -48,7 +48,7 @@
                             <li><a href="/blog-home">Blog</a></li>
                             <li><a href="/contact">Contato</a></li>
                             <li><a class="ticker-btn" href="/register">Cadastre-se</a></li>
-                            <li><a class="ticker-btn" href="/login.html">Login</a></li>
+                            <li><a class="ticker-btn" href="/login">Login</a></li>
                         </ul>
                     </nav><!-- #nav-menu-container -->
                 </div>
