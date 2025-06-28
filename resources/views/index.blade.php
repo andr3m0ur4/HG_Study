@@ -48,7 +48,7 @@
                             <li><a href="/category">Orientadores</a></li>
                             <li><a href="/blog-home">Blog</a></li>
                             <li><a href="/contact">Contato</a></li>
-                            <li><a class="ticker-btn" href="/cadastro.html">Cadastre-se</a></li>
+                            <li><a class="ticker-btn" href="/register">Cadastre-se</a></li>
                             <li><a class="ticker-btn" href="/login.html">Login</a></li>
                         </ul>
                     </nav><!-- #nav-menu-container -->
@@ -511,7 +511,7 @@
                             <h1 class="mb-10 text-white">Deseja ver mais?</h1>
                             <p class="text-white">Cadastre-se agora como tutor ou aluno e veja as vantagens de se tornar um.</p>
 
-                            <a class="primary-btn" href="/cadastro.html">Cadastrar</a>
+                            <a class="primary-btn" href="/register">Cadastrar</a>
                         </div>
                     </div>
                 </div>
