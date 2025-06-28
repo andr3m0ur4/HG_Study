@@ -46,7 +46,7 @@
                             <li><a href="/about-us">Sobre nós</a></li>
                             <li><a href="/category">Orientadores</a></li>
                             <li><a href="/blog-home">Blog</a></li>
-                            <li><a href="/contact.html">Contato</a></li>
+                            <li><a href="/contact">Contato</a></li>
                             <li><a class="ticker-btn" href="/cadastro.html">Cadastre-se</a></li>
                             <li><a class="ticker-btn" href="/login.html">Login</a></li>
                         </ul>

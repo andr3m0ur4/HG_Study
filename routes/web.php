@@ -25,3 +25,7 @@ Route::get('/blog-home', function () {
 Route::get('/blog-single', function () {
     return view('blog-single');
 });
+
+Route::get('/contact', function () {
+    return view('contact');
+});
